@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F016A0E72AA7A3CA0009A36B /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0E62AA7A3C90009A36B /* ThemeManager.swift */; };
+		F016A0E92AA7C9B80009A36B /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0E82AA7C9B80009A36B /* ChatMessage.swift */; };
+		F016A0EB2AA8FD220009A36B /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0EA2AA8FD220009A36B /* Enviroment.swift */; };
+		F059E1772A8D6A9A002777A3 /* DelphiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1762A8D6A9A002777A3 /* DelphiApp.swift */; };
+		F059E1792A8D6A9A002777A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1782A8D6A9A002777A3 /* ContentView.swift */; };
+		F059E17B2A8D6A9B002777A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059E17A2A8D6A9B002777A3 /* Assets.xcassets */; };
+		F059E17E2A8D6A9B002777A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059E17D2A8D6A9B002777A3 /* Preview Assets.xcassets */; };
+		F059E1882A8D6A9B002777A3 /* DelphiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1872A8D6A9B002777A3 /* DelphiTests.swift */; };
+		F059E1922A8D6A9B002777A3 /* DelphiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1912A8D6A9B002777A3 /* DelphiUITests.swift */; };
+		F059E1942A8D6A9B002777A3 /* DelphiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1932A8D6A9B002777A3 /* DelphiUITestsLaunchTests.swift */; };
+		F059E1A12A940B73002777A3 /* practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1A02A940B73002777A3 /* practice.swift */; };
+		F059E1A32A967EEF002777A3 /* Userlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1A22A967EEF002777A3 /* Userlog.swift */; };
+		F059E1A72A968768002777A3 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = F059E1A62A968768002777A3 /* Auth0 */; };
+		F059E1A92A9687E5002777A3 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = F059E1A82A9687E5002777A3 /* Auth0.plist */; };
+		F059E1AB2A9688A1002777A3 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1AA2A9688A1002777A3 /* Login.swift */; };
+		F059E1AF2A9722AA002777A3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1AE2A9722AA002777A3 /* InputView.swift */; };
+		F059E1B72A9D3A82002777A3 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = F059E1B62A9D3A82002777A3 /* OpenAIKit */; };
+		F059E1BB2A9D3B8B002777A3 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */; };
+		F059E1BD2A9D4E4A002777A3 /* OpenAIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F059E1842A8D6A9B002777A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F059E16B2A8D6A9A002777A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F059E1722A8D6A9A002777A3;
+			remoteInfo = Delphi;
+		};
+		F059E18E2A8D6A9B002777A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F059E16B2A8D6A9A002777A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F059E1722A8D6A9A002777A3;
+			remoteInfo = Delphi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F016A0E62AA7A3C90009A36B /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		F016A0E82AA7C9B80009A36B /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		F016A0EA2AA8FD220009A36B /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		F059E1732A8D6A9A002777A3 /* Delphi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delphi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F059E1762A8D6A9A002777A3 /* DelphiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelphiApp.swift; sourceTree = "<group>"; };
+		F059E1782A8D6A9A002777A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F059E17A2A8D6A9B002777A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F059E17D2A8D6A9B002777A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F059E1832A8D6A9B002777A3 /* DelphiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelphiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F059E1872A8D6A9B002777A3 /* DelphiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelphiTests.swift; sourceTree = "<group>"; };
+		F059E18D2A8D6A9B002777A3 /* DelphiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelphiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F059E1912A8D6A9B002777A3 /* DelphiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelphiUITests.swift; sourceTree = "<group>"; };
+		F059E1932A8D6A9B002777A3 /* DelphiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelphiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F059E1A02A940B73002777A3 /* practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice.swift; sourceTree = "<group>"; };
+		F059E1A22A967EEF002777A3 /* Userlog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Userlog.swift; sourceTree = "<group>"; };
+		F059E1A82A9687E5002777A3 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		F059E1AA2A9688A1002777A3 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		F059E1AE2A9722AA002777A3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIClient.swift; sourceTree = "<group>"; };
+		F06744012A9FE82A007520A1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F059E1702A8D6A9A002777A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F059E1A72A968768002777A3 /* Auth0 in Frameworks */,
+				F059E1B72A9D3A82002777A3 /* OpenAIKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F059E1802A8D6A9B002777A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F059E18A2A8D6A9B002777A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F059E16A2A8D6A9A002777A3 = {
+			isa = PBXGroup;
+			children = (
+				F059E1752A8D6A9A002777A3 /* Delphi */,
+				F059E1862A8D6A9B002777A3 /* DelphiTests */,
+				F059E1902A8D6A9B002777A3 /* DelphiUITests */,
+				F059E1742A8D6A9A002777A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F059E1742A8D6A9A002777A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F059E1732A8D6A9A002777A3 /* Delphi.app */,
+				F059E1832A8D6A9B002777A3 /* DelphiTests.xctest */,
+				F059E18D2A8D6A9B002777A3 /* DelphiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F059E1752A8D6A9A002777A3 /* Delphi */ = {
+			isa = PBXGroup;
+			children = (
+				F06744012A9FE82A007520A1 /* Info.plist */,
+				F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */,
+				F059E1B42A9D3994002777A3 /* Chatgpt */,
+				F059E1762A8D6A9A002777A3 /* DelphiApp.swift */,
+				F059E1782A8D6A9A002777A3 /* ContentView.swift */,
+				F059E17A2A8D6A9B002777A3 /* Assets.xcassets */,
+				F059E17C2A8D6A9B002777A3 /* Preview Content */,
+				F059E1A02A940B73002777A3 /* practice.swift */,
+				F059E1A22A967EEF002777A3 /* Userlog.swift */,
+				F059E1A82A9687E5002777A3 /* Auth0.plist */,
+				F059E1AA2A9688A1002777A3 /* Login.swift */,
+				F059E1AE2A9722AA002777A3 /* InputView.swift */,
+				F016A0E62AA7A3C90009A36B /* ThemeManager.swift */,
+				F016A0E82AA7C9B80009A36B /* ChatMessage.swift */,
+				F016A0EA2AA8FD220009A36B /* Enviroment.swift */,
+			);
+			path = Delphi;
+			sourceTree = "<group>";
+		};
+		F059E17C2A8D6A9B002777A3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F059E17D2A8D6A9B002777A3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F059E1862A8D6A9B002777A3 /* DelphiTests */ = {
+			isa = PBXGroup;
+			children = (
+				F059E1872A8D6A9B002777A3 /* DelphiTests.swift */,
+			);
+			path = DelphiTests;
+			sourceTree = "<group>";
+		};
+		F059E1902A8D6A9B002777A3 /* DelphiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F059E1912A8D6A9B002777A3 /* DelphiUITests.swift */,
+				F059E1932A8D6A9B002777A3 /* DelphiUITestsLaunchTests.swift */,
+			);
+			path = DelphiUITests;
+			sourceTree = "<group>";
+		};
+		F059E1B42A9D3994002777A3 /* Chatgpt */ = {
+			isa = PBXGroup;
+			children = (
+				F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */,
+			);
+			path = Chatgpt;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F059E1722A8D6A9A002777A3 /* Delphi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F059E1972A8D6A9B002777A3 /* Build configuration list for PBXNativeTarget "Delphi" */;
+			buildPhases = (
+				F059E16F2A8D6A9A002777A3 /* Sources */,
+				F059E1702A8D6A9A002777A3 /* Frameworks */,
+				F059E1712A8D6A9A002777A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Delphi;
+			packageProductDependencies = (
+				F059E1A62A968768002777A3 /* Auth0 */,
+				F059E1B62A9D3A82002777A3 /* OpenAIKit */,
+			);
+			productName = Delphi;
+			productReference = F059E1732A8D6A9A002777A3 /* Delphi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F059E1822A8D6A9B002777A3 /* DelphiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F059E19A2A8D6A9B002777A3 /* Build configuration list for PBXNativeTarget "DelphiTests" */;
+			buildPhases = (
+				F059E17F2A8D6A9B002777A3 /* Sources */,
+				F059E1802A8D6A9B002777A3 /* Frameworks */,
+				F059E1812A8D6A9B002777A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F059E1852A8D6A9B002777A3 /* PBXTargetDependency */,
+			);
+			name = DelphiTests;
+			productName = DelphiTests;
+			productReference = F059E1832A8D6A9B002777A3 /* DelphiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F059E18C2A8D6A9B002777A3 /* DelphiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F059E19D2A8D6A9B002777A3 /* Build configuration list for PBXNativeTarget "DelphiUITests" */;
+			buildPhases = (
+				F059E1892A8D6A9B002777A3 /* Sources */,
+				F059E18A2A8D6A9B002777A3 /* Frameworks */,
+				F059E18B2A8D6A9B002777A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F059E18F2A8D6A9B002777A3 /* PBXTargetDependency */,
+			);
+			name = DelphiUITests;
+			productName = DelphiUITests;
+			productReference = F059E18D2A8D6A9B002777A3 /* DelphiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F059E16B2A8D6A9A002777A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					F059E1722A8D6A9A002777A3 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					F059E1822A8D6A9B002777A3 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = F059E1722A8D6A9A002777A3;
+					};
+					F059E18C2A8D6A9B002777A3 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = F059E1722A8D6A9A002777A3;
+					};
+				};
+			};
+			buildConfigurationList = F059E16E2A8D6A9A002777A3 /* Build configuration list for PBXProject "Delphi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F059E16A2A8D6A9A002777A3;
+			packageReferences = (
+				F059E1A52A968768002777A3 /* XCRemoteSwiftPackageReference "Auth0" */,
+				F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */,
+			);
+			productRefGroup = F059E1742A8D6A9A002777A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F059E1722A8D6A9A002777A3 /* Delphi */,
+				F059E1822A8D6A9B002777A3 /* DelphiTests */,
+				F059E18C2A8D6A9B002777A3 /* DelphiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F059E1712A8D6A9A002777A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F059E1BB2A9D3B8B002777A3 /* Config.xcconfig in Resources */,
+				F059E17E2A8D6A9B002777A3 /* Preview Assets.xcassets in Resources */,
+				F059E1A92A9687E5002777A3 /* Auth0.plist in Resources */,
+				F059E17B2A8D6A9B002777A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F059E1812A8D6A9B002777A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F059E18B2A8D6A9B002777A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F059E16F2A8D6A9A002777A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F059E1BD2A9D4E4A002777A3 /* OpenAIClient.swift in Sources */,
+				F059E1792A8D6A9A002777A3 /* ContentView.swift in Sources */,
+				F016A0EB2AA8FD220009A36B /* Enviroment.swift in Sources */,
+				F059E1AB2A9688A1002777A3 /* Login.swift in Sources */,
+				F016A0E92AA7C9B80009A36B /* ChatMessage.swift in Sources */,
+				F059E1A32A967EEF002777A3 /* Userlog.swift in Sources */,
+				F059E1AF2A9722AA002777A3 /* InputView.swift in Sources */,
+				F016A0E72AA7A3CA0009A36B /* ThemeManager.swift in Sources */,
+				F059E1772A8D6A9A002777A3 /* DelphiApp.swift in Sources */,
+				F059E1A12A940B73002777A3 /* practice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F059E17F2A8D6A9B002777A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F059E1882A8D6A9B002777A3 /* DelphiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F059E1892A8D6A9B002777A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F059E1942A8D6A9B002777A3 /* DelphiUITestsLaunchTests.swift in Sources */,
+				F059E1922A8D6A9B002777A3 /* DelphiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F059E1852A8D6A9B002777A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F059E1722A8D6A9A002777A3 /* Delphi */;
+			targetProxy = F059E1842A8D6A9B002777A3 /* PBXContainerItemProxy */;
+		};
+		F059E18F2A8D6A9B002777A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F059E1722A8D6A9A002777A3 /* Delphi */;
+			targetProxy = F059E18E2A8D6A9B002777A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F059E1952A8D6A9B002777A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F059E1962A8D6A9B002777A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F059E1982A8D6A9B002777A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Delphi/Preview Content\"";
+				DEVELOPMENT_TEAM = A5YN94D4B4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Delphi/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lars.Delphi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F059E1992A8D6A9B002777A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Delphi/Preview Content\"";
+				DEVELOPMENT_TEAM = A5YN94D4B4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Delphi/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lars.Delphi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F059E19B2A8D6A9B002777A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5YN94D4B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lars.DelphiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Delphi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Delphi";
+			};
+			name = Debug;
+		};
+		F059E19C2A8D6A9B002777A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5YN94D4B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lars.DelphiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Delphi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Delphi";
+			};
+			name = Release;
+		};
+		F059E19E2A8D6A9B002777A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5YN94D4B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lars.DelphiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Delphi;
+			};
+			name = Debug;
+		};
+		F059E19F2A8D6A9B002777A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A5YN94D4B4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lars.DelphiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Delphi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F059E16E2A8D6A9A002777A3 /* Build configuration list for PBXProject "Delphi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F059E1952A8D6A9B002777A3 /* Debug */,
+				F059E1962A8D6A9B002777A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F059E1972A8D6A9B002777A3 /* Build configuration list for PBXNativeTarget "Delphi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F059E1982A8D6A9B002777A3 /* Debug */,
+				F059E1992A8D6A9B002777A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F059E19A2A8D6A9B002777A3 /* Build configuration list for PBXNativeTarget "DelphiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F059E19B2A8D6A9B002777A3 /* Debug */,
+				F059E19C2A8D6A9B002777A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F059E19D2A8D6A9B002777A3 /* Build configuration list for PBXNativeTarget "DelphiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F059E19E2A8D6A9B002777A3 /* Debug */,
+				F059E19F2A8D6A9B002777A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F059E1A52A968768002777A3 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:dylanshine/openai-kit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F059E1A62A968768002777A3 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F059E1A52A968768002777A3 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+		F059E1B62A9D3A82002777A3 /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */;
+			productName = OpenAIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F059E16B2A8D6A9A002777A3 /* Project object */;
+}
