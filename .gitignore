@@ -1,0 +1,26 @@
+# Xcode per-user config
+*.xcuserstate
+*.xcworkspace
+
+#Local Config Files/ secrets
+Config.xcconfig
+.env
+
+# macOS specific files
+.DS_Store
+
+# Generated files and build artifacts
+build/
+DerivedData/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.swiftpm/
+
+# User-specific settings
+*.xcuserstate
+
+# Xcode project files (ensure xcodeproj file not added)
+!*.xcodeproj 
+
+#Auth0 info
+Auth0.plist
