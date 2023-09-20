@@ -11,37 +11,35 @@
 
 import SwiftUI
 
+
 struct InputView: View {
-    @State private var newMessage = ""
+    //need to mark these as published so the view is updated
+   /* @State private var newMessage = ""
     @State private var placeHolderMessage = ""
-    @State private var chatMessages: [chatMessage] = chatMessage.testMessages
-    @Binding var numbers: [InputView] //borrowed from contentview
-
-    var id: UUID
-    var client: AIClient
-
-    init(numbers: Binding<[InputView]>) {
-          _numbers = numbers
-          id = UUID()
-          client = AIClient()
-    }
+    @State private var chatMessages: [chatMessage] = chatMessage.testMessages*/
+    //@Binding var chatsList: [InputView] //borrowed from contentview
+   
+    //let client: AIClient
+    @ObservedObject var inputViewModel: InputViewModel
+    @Binding var chatsList: [InputViewModel] //list of existing chats to add to
+    
     
     var body: some View {
         VStack {
             ScrollView {
                 LazyVStack {
-                    ForEach(chatMessages, id:  \.id) { message in
+                    ForEach(inputViewModel.chatMessages, id:  \.id) { message in
                         messageView(message: message)
                     }
                 }
             }
             .padding()
             HStack {
-              TextField("type here", text: $placeHolderMessage) {
+                TextField("type here", text: $inputViewModel.placeHolderMessage) {
                  Task {
-                      newMessage = placeHolderMessage
-                      placeHolderMessage = ""
-                      await sendMessage()
+                     inputViewModel.newMessage = inputViewModel.placeHolderMessage
+                     inputViewModel.placeHolderMessage = ""
+                     await inputViewModel.sendMessage()
                   }
                }
               .padding()
@@ -50,9 +48,9 @@ struct InputView: View {
 //               .keyboardType(.default)
                 Button {
                     Task {
-                      newMessage = placeHolderMessage
-                      placeHolderMessage = ""
-                      await sendMessage()
+                        inputViewModel.newMessage = inputViewModel.placeHolderMessage
+                        inputViewModel.placeHolderMessage = ""
+                        await inputViewModel.sendMessage()
                     }
                 } label: {
                     Text("send")
@@ -66,8 +64,12 @@ struct InputView: View {
             .padding()
         }
         .onDisappear {
-            DispatchQueue.main.async { //to update UI on main thread always
-                    self.numbers.append(self)
+            //always update UI related on main thread
+            DispatchQueue.main.async {
+                if !chatsList.contains(where:{$0.id == inputViewModel.id})
+                {
+                    self.chatsList.append(inputViewModel)
+                }
             }
         }
     }
@@ -84,35 +86,17 @@ struct InputView: View {
             if message.sender == .gpt {Spacer()}
         }
     }
-    
-    func sendMessage() async {
-        if !newMessage.isEmpty {
-            let newChat = chatMessage(id: UUID().uuidString,
-                                      content: newMessage,
-                                      dateCreated: Date(),
-                                      sender: .user)
-            chatMessages.append(newChat)
-            // make async call to openAI
-         /*   await client.request(userMessage: newMessage) { result in
-                switch result {
-                case .success(let completion):
-                    let gptResponse = String(describing: completion.choices[0].message)
-                    let newChat = chatMessage(id: UUID().uuidString, content: gptResponse, dateCreated: Date(), sender: .gpt)
-                    chatMessages.append(newChat)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }*/
-        }
-    }
-    
+ 
 }
 
 struct InputView_Previews: PreviewProvider {
     static var fake = [InputView]()
-
+    static var client = AIClient.shared
+    static var fakeList = chatMessage.testMessages
+    
     static var previews: some View {
-        InputView(numbers: .constant(fake))
+       // InputView(chatsList: .constant(fake), client: client)
+        InputView(inputViewModel: InputViewModel(), chatsList: .constant(fakeList) )
     }
 }
 

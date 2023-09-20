@@ -11,39 +11,29 @@ import NIO
 import AsyncHTTPClient
 import UIKit
 
-class AIClient {
+//singleton httpclient for lifecycle of app, shuts down on app close. Access AIClient.shared
+class AIClient: ObservableObject {
+    
+    static let shared = AIClient() // ensure a singleton instance of AIClient through lifespan of app using AIClient.shared
     
     var apiKey = Enviroment.apiKey
-    var organization = Enviroment.organization
-    
+  //  var organization = Enviroment.organization
     var openAIClient: OpenAIKit.Client
+    var httpClient: HTTPClient
    
     init() {
-        print("Here's your api key value -> \(apiKey)")
-        print("Here's your api org value -> \(organization)")
-        // Generally we would advise on creating a single HTTPClient for the lifecycle of your application and recommend shutting it down on application close.
-     /*   let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
-        let httpClient = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
-        
-        defer {
-            // it's important to shutdown the httpClient after all requests are done, even if one failed. See: https://github.com/swift-server/async-http-client
-            try? httpClient.syncShutdown()
-        }
-        
-        let configuration = Configuration(apiKey: apiKey, organization: organization)
-        openAIClient = OpenAIKit.Client(httpClient: httpClient, configuration: configuration)*/
-        let urlSession = URLSession(configuration: .default)
-     //   let configuration = Configuration(apiKey: apiKey, organization: organization)
+        let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
+        httpClient = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         let configuration = Configuration(apiKey: apiKey)
-        openAIClient = OpenAIKit.Client(session: urlSession, configuration: configuration)
+        openAIClient = OpenAIKit.Client(httpClient: httpClient, configuration: configuration)
     }
 
    
-    /*
+    /* -----------
       system - external instructions to help steer convo with context and behavior suggestions for assistant
       user - msg that actual customer sends
       assistant - msg that gpt generates in response
-     */
+     ------------ */
     func request(userMessage: String, onCompletion: (Result<Chat,APIErrorResponse>) -> Void) async {
         do {
             let userMsg: Chat.Message = .user(content: userMessage)
@@ -67,3 +57,7 @@ class AIClient {
  
 }
 
+        // --url session method
+     /*    let urlSession = URLSession(configuration: .default)
+        let configuration = Configuration(apiKey: apiKey)
+        openAIClient = OpenAIKit.Client(session: urlSession, configuration: configuration)*/
