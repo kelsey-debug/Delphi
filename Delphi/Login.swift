@@ -13,17 +13,24 @@ struct LoginView: View {
     let onLoginSuccess: (Bool) -> Void //callback func to progress into main app post login
     
   var body: some View {
-      VStack{
-         Text("Welcome")
+      ZStack {
+          Color(ThemeManager.shared.primaryColor)
+            .edgesIgnoringSafeArea(.all)
+      VStack {
+         Text("Delphi welcomes you")
+              .font(.title)
+              .bold()
+         Spacer()
         Button("Login"){
             login()
         }
+        .cornerRadius(10.0)
         Button("Logout"){
               logout()
         }
       }
- 
-    }
+     }
+  }
     
     func login() {
            Auth0

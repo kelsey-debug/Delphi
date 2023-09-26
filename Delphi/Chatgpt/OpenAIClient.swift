@@ -19,13 +19,18 @@ class AIClient: ObservableObject {
     var apiKey = Enviroment.apiKey
   //  var organization = Enviroment.organization
     var openAIClient: OpenAIKit.Client
-    var httpClient: HTTPClient
+  //  var httpClient: HTTPClient
+    var urlSession: URLSession
    
     init() {
-        let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
-        httpClient = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
-        let configuration = Configuration(apiKey: apiKey)
-        openAIClient = OpenAIKit.Client(httpClient: httpClient, configuration: configuration)
+        //let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
+        //httpClient = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
+        //even tho compoent is being used at a lower thread (thru task in contentview), I am ensuring it is being handled on main thread
+       // let configuration = Configuration(apiKey: apiKey)
+         urlSession = URLSession(configuration: .default)
+         let configuration = Configuration(apiKey: apiKey)
+         openAIClient = OpenAIKit.Client(session: urlSession, configuration: configuration)
+      //  openAIClient = OpenAIKit.Client(httpClient: httpClient, configuration: configuration)
     }
 
    
@@ -34,13 +39,16 @@ class AIClient: ObservableObject {
       user - msg that actual customer sends
       assistant - msg that gpt generates in response
      ------------ */
+    
+    //TODO: need to send previous context into bot in order to have real convo
     func request(userMessage: String, onCompletion: (Result<Chat,APIErrorResponse>) -> Void) async {
         do {
             let userMsg: Chat.Message = .user(content: userMessage)
             let sysMsg: Chat.Message = .system(content: "you are a helpful assistant who is curious about this inquiry. Use what you know about dream interpretation and astrology.")
             let completion = try await
             openAIClient.chats.create(model: Model.GPT4.gpt4,
-                                      messages: [userMsg, sysMsg])
+                                      messages: [userMsg, sysMsg],
+                                      maxTokens: 6) //maxx tokens to use for a response from api
             print("Response from model: \(String(describing: completion.choices[0].message))")
             onCompletion(.success(completion))
             
@@ -61,3 +69,6 @@ class AIClient: ObservableObject {
      /*    let urlSession = URLSession(configuration: .default)
         let configuration = Configuration(apiKey: apiKey)
         openAIClient = OpenAIKit.Client(session: urlSession, configuration: configuration)*/
+
+
+//may need to expand upon AIClient to fine tune model, tokens, context etc

@@ -12,28 +12,34 @@ struct ContentView: View {
     @State var chatsList = [InputViewModel]()
     
     var body: some View {
-        NavigationView {
-            ForEach(chatsList.indices) { index in
-                previousChats(index:index)
-            }
-            .navigationTitle("Previous Convos")
+      NavigationView {
+          ZStack {
+             Color(ThemeManager.shared.primaryColor)
+               .edgesIgnoringSafeArea(.all)
+             ForEach(chatsList.indices, id: \.self) { index in
+                 previousChats(index: index)
+             }
+            .navigationTitle("Delphis Dialogues")
             .navigationBarItems(trailing:
-                                    NavigationLink(destination:
-                                         InputView(inputViewModel:
-                                    InputViewModel(client: client), chatsList: $chatsList)) {
+                               NavigationLink(destination:
+                                              InputView(inputViewModel:
+                                              InputViewModel(client: client),
+                                              chatsList: $chatsList)) {
                 Image(systemName: "square.and.pencil")
-            })
-        }
-    }
+                    .foregroundColor(.black)
+                })
+         }
+      }
+   }
     
     //format the archived chats
     func previousChats(index: Int) -> some View {
         let inputView = InputView(inputViewModel: chatsList[index], chatsList: $chatsList)
         return NavigationLink(destination: inputView) {
             Text("\(chatsList[index].id.uuidString)")
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding()
-                .background(.blue)
+                .background(Color(uiColor: ThemeManager.shared.secondaryColor))
                 .cornerRadius(16)
         }
     }
@@ -48,6 +54,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let client = AIClient.shared
         ContentView(client: client)
+       // ContentView()
     }
 }
 

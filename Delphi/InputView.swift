@@ -13,20 +13,16 @@ import SwiftUI
 
 
 struct InputView: View {
-    //need to mark these as published so the view is updated
-   /* @State private var newMessage = ""
-    @State private var placeHolderMessage = ""
-    @State private var chatMessages: [chatMessage] = chatMessage.testMessages*/
-    //@Binding var chatsList: [InputView] //borrowed from contentview
    
-    //let client: AIClient
     @ObservedObject var inputViewModel: InputViewModel
-    @Binding var chatsList: [InputViewModel] //list of existing chats to add to
-    
+    @Binding var chatsList: [InputViewModel] //list of existing chats
     
     var body: some View {
-        VStack {
-            ScrollView {
+        ZStack {
+            Color(uiColor: ThemeManager.shared.primaryColor)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                ScrollView {
                 LazyVStack {
                     ForEach(inputViewModel.chatMessages, id:  \.id) { message in
                         messageView(message: message)
@@ -36,16 +32,15 @@ struct InputView: View {
             .padding()
             HStack {
                 TextField("type here", text: $inputViewModel.placeHolderMessage) {
-                 Task {
-                     inputViewModel.newMessage = inputViewModel.placeHolderMessage
-                     inputViewModel.placeHolderMessage = ""
-                     await inputViewModel.sendMessage()
-                  }
-               }
-              .padding()
-              .background(.gray.opacity(0.1))
-              .cornerRadius(12)
-//               .keyboardType(.default)
+                    Task {
+                        inputViewModel.newMessage = inputViewModel.placeHolderMessage
+                        inputViewModel.placeHolderMessage = ""
+                        await inputViewModel.sendMessage()
+                    }
+                }
+                .padding()
+                .background(.gray.opacity(0.1))
+                .cornerRadius(12)
                 Button {
                     Task {
                         inputViewModel.newMessage = inputViewModel.placeHolderMessage
@@ -59,9 +54,10 @@ struct InputView: View {
                 .padding()
                 .background(.black)
                 .cornerRadius(12)
-               
+                
             }
             .padding()
+          }
         }
         .onDisappear {
             //always update UI related on main thread
@@ -81,7 +77,7 @@ struct InputView: View {
             Text(message.content)
                 .foregroundColor(message.sender == .user ? .white: .black)
                 .padding()
-                .background(message.sender == .user ? .blue: .gray.opacity(0.1))
+                .background(message.sender == .user ? Color(uiColor: ThemeManager.shared.secondaryColor): Color(uiColor: ThemeManager.shared.secondAccentColor))
                 .cornerRadius(16)
             if message.sender == .gpt {Spacer()}
         }
@@ -90,13 +86,15 @@ struct InputView: View {
 }
 
 struct InputView_Previews: PreviewProvider {
-    static var fake = [InputView]()
     static var client = AIClient.shared
-    static var fakeList = chatMessage.testMessages
+    //static var fakeList = chatMessage.testMessages
+    static var fakeVM = InputViewModel(client: client)
+    //static var fakeVM = InputViewModel(client: client)
+  //  static var fakeChatList = [fakeVM]
     
     static var previews: some View {
-       // InputView(chatsList: .constant(fake), client: client)
-        InputView(inputViewModel: InputViewModel(), chatsList: .constant(fakeList) )
+        InputView(inputViewModel: fakeVM, chatsList: .constant([fakeVM]))
+      //  InputView(inputViewModel: InputViewModel(), chatsList: .constant(fakeChatList) )
     }
 }
 

@@ -19,6 +19,7 @@ struct DelphiApp: App {
         WindowGroup {
             if isLoggedin {
                 ContentView(client: client) //pass binding to contentview to use singleton instance
+                //ContentView() //pass binding to contentview to use singleton instance
             } else {
                 LoginView(onLoginSuccess: { success in
                      isLoggedin = success
@@ -45,11 +46,13 @@ struct DelphiApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     func clientShutdown(singletonClient: AIClient) {
-        do {
-            try singletonClient.httpClient.syncShutdown() //try? siliently discards the error do catch to handle it.
-        } catch {
+    //    do {
+       //     try singletonClient.httpClient.syncShutdown() //try? siliently discards the error do catch to handle it.
+            singletonClient.urlSession.invalidateAndCancel()
+            print("client has shutdown")
+     /*   } catch {
             print("error on client shutdown \(error)")
-        }
+        }*/
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication) {

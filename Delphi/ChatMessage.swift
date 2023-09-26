@@ -3,7 +3,7 @@
 //  Delphi
 //
 //  Created by Kelsey Larson on 9/5/23.
-//
+// the message itself that is inside the list of chats.
 
 import Foundation
 
