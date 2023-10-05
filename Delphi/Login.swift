@@ -20,14 +20,13 @@ struct LoginView: View {
          Text("Delphi welcomes you")
               .font(.title)
               .bold()
-         Spacer()
         Button("Login"){
             login()
-        }
+        }.foregroundColor(.black)
         .cornerRadius(10.0)
         Button("Logout"){
               logout()
-        }
+        }.foregroundColor(.black)
       }
      }
   }

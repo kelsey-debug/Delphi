@@ -14,6 +14,7 @@ struct DelphiApp: App {
     
     @State var isLoggedin = false
     let client = AIClient.shared
+    var userStorage = UserStorage.shared
     
     var body: some Scene {
         WindowGroup {
@@ -39,8 +40,20 @@ struct DelphiApp: App {
             }
         }
     }
-       
-  
+    
+
+//when app is about to close, take all chats inside contentViews "chatslist"
+//use .chatMessages instead of $chatMessages bc I want actual value
+//$ gives us the projected value from property wrapper published
+ func saveUserData(chatData: [InputViewModel]) {
+    var temp = [[chatMessage]]()
+    for viewModel in chatData {
+        let msgs = viewModel.chatMessages
+        temp.append(msgs)
+    }
+    userStorage.saveChatMessage(chatMessages: temp)
+ }
+
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {

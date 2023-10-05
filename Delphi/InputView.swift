@@ -11,7 +11,7 @@
 
 import SwiftUI
 
-
+//who needs awareness of userStorage?
 struct InputView: View {
    
     @ObservedObject var inputViewModel: InputViewModel
@@ -62,7 +62,7 @@ struct InputView: View {
         .onDisappear {
             //always update UI related on main thread
             DispatchQueue.main.async {
-                if !chatsList.contains(where:{$0.id == inputViewModel.id})
+                if !chatsList.contains(where:{$0.VMid == inputViewModel.VMid})
                 {
                     self.chatsList.append(inputViewModel)
                 }

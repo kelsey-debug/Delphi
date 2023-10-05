@@ -10,12 +10,15 @@ import Auth0
 struct ContentView: View {
     let client: AIClient //swiftui auto assigns this from val passed in
     @State var chatsList = [InputViewModel]()
+   
+    //if there was a previous login, populatchatslist with previous data
+    //most likely need a dedidcated init 
     
     var body: some View {
       NavigationView {
           ZStack {
-             Color(ThemeManager.shared.primaryColor)
-               .edgesIgnoringSafeArea(.all)
+         //    Color(ThemeManager.shared.primaryColor)
+        //      .edgesIgnoringSafeArea(.all)
              ForEach(chatsList.indices, id: \.self) { index in
                  previousChats(index: index)
              }
@@ -34,14 +37,21 @@ struct ContentView: View {
     
     //format the archived chats
     func previousChats(index: Int) -> some View {
-        let inputView = InputView(inputViewModel: chatsList[index], chatsList: $chatsList)
+        let currentVM = chatsList[index]
+        let inputView = InputView(inputViewModel: currentVM, chatsList: $chatsList)
+        let formattedText = displayStrings(textToFormat: currentVM.chatMessages[0].content)
         return NavigationLink(destination: inputView) {
-            Text("\(chatsList[index].id.uuidString)")
+            Text("\(formattedText)...")
                 .foregroundColor(.black)
                 .padding()
                 .background(Color(uiColor: ThemeManager.shared.secondaryColor))
                 .cornerRadius(16)
         }
+    }
+   
+    //format string for display of prev dialogs
+    func displayStrings(textToFormat: String) -> String {
+       return String(textToFormat.prefix(40))
     }
     
     func removeRows(at offsets: IndexSet) {
