@@ -16,14 +16,17 @@ class InputViewModel: ObservableObject {
     //these values are updated inside the view main thread in inputview.so I dont have an error
     @Published var newMessage = ""
     @Published var placeHolderMessage = ""
-    @Published var chatMessages = [chatMessage]() //how can I save this outside app eventually?
+    @Published var chatMessages = [chatMessage]()
     
     var VMid = UUID() //to distinguish between conversations/inputviewmodel instances
     var prevMsgs = [String]()
     let client: AIClient
     
-    init(client: AIClient) {
-       self.client = client
+    init(client: AIClient, chatMessages: [chatMessage]?) { //optional init (?) for inputvm chatMessages data
+      self.client = client
+      if let messages = chatMessages { //if its not nil, assign it to the current vm
+        self.chatMessages = messages
+      }
     }
    
     ///*
@@ -31,14 +34,16 @@ class InputViewModel: ObservableObject {
     /// They need to be distinguished between INSTANCES of inputVMs, not instances of ChatMessage */
     func sendMessage() async {
         if !newMessage.isEmpty {
-            let newChat = chatMessage(id: VMid.uuidString,
+            let newChat = chatMessage(id: UUID().uuidString,
                                       content: newMessage,
                                       dateCreated: Date(),
-                                      sender: .user)
+                                   //   sender: .user)
+                                      sender: "user")
             DispatchQueue.main.async { [self] in //published swiftUI changes must be done on the main thread
                 chatMessages.append(newChat)
                 prevMsgs.append(newMessage)
             }
+            //TODO: use langchain here!!
             // make async call to openAI
           /*  await client.request(userMessage: newMessage, previousMessages: prevMsgs) { result in
                 switch result {

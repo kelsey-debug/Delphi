@@ -10,6 +10,7 @@
 		F016A0E72AA7A3CA0009A36B /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0E62AA7A3C90009A36B /* ThemeManager.swift */; };
 		F016A0E92AA7C9B80009A36B /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0E82AA7C9B80009A36B /* ChatMessage.swift */; };
 		F016A0EB2AA8FD220009A36B /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0EA2AA8FD220009A36B /* Enviroment.swift */; };
+		F016A0ED2ABB64890009A36B /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0EC2ABB64890009A36B /* InputViewModel.swift */; };
 		F059E1772A8D6A9A002777A3 /* DelphiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1762A8D6A9A002777A3 /* DelphiApp.swift */; };
 		F059E1792A8D6A9A002777A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1782A8D6A9A002777A3 /* ContentView.swift */; };
 		F059E17B2A8D6A9B002777A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059E17A2A8D6A9B002777A3 /* Assets.xcassets */; };
@@ -26,6 +27,15 @@
 		F059E1B72A9D3A82002777A3 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = F059E1B62A9D3A82002777A3 /* OpenAIKit */; };
 		F059E1BB2A9D3B8B002777A3 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */; };
 		F059E1BD2A9D4E4A002777A3 /* OpenAIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */; };
+		F05E6AED2AE98AEC003DB9A6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05E6AEC2AE98AEC003DB9A6 /* UserData.swift */; };
+		F0E58A022AF033B0004045AD /* LangChain in Frameworks */ = {isa = PBXBuildFile; productRef = F0E58A012AF033B0004045AD /* LangChain */; };
+		F0E58A042AF0359B004045AD /* env.txt in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A032AF0359B004045AD /* env.txt */; };
+		F0E58A062AF16A39004045AD /* LangChainClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E58A052AF16A38004045AD /* LangChainClient.swift */; };
+		F0E58A0E2AF5B31F004045AD /* CarlJungData.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */; };
+		F0E58A102AF9B16E004045AD /* FreudDreams.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A0F2AF9B16E004045AD /* FreudDreams.pdf */; };
+		F0E58A152AFAA0C6004045AD /* Jungtest.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A132AFAA0C6004045AD /* Jungtest.pdf */; };
+		F0E58A192AFAA8DD004045AD /* Jungtextlonger.txt in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A182AFAA8DD004045AD /* Jungtextlonger.txt */; };
+		F0F6766F2ACCB6B40011302B /* userStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F6766E2ACCB6B40011302B /* userStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,7 @@
 		F016A0E62AA7A3C90009A36B /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		F016A0E82AA7C9B80009A36B /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F016A0EA2AA8FD220009A36B /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		F016A0EC2ABB64890009A36B /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
 		F059E1732A8D6A9A002777A3 /* Delphi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delphi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F059E1762A8D6A9A002777A3 /* DelphiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelphiApp.swift; sourceTree = "<group>"; };
 		F059E1782A8D6A9A002777A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,7 +77,15 @@
 		F059E1AE2A9722AA002777A3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIClient.swift; sourceTree = "<group>"; };
+		F05E6AEC2AE98AEC003DB9A6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F06744012A9FE82A007520A1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0E58A032AF0359B004045AD /* env.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = env.txt; sourceTree = "<group>"; };
+		F0E58A052AF16A38004045AD /* LangChainClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangChainClient.swift; sourceTree = "<group>"; };
+		F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CarlJungData.pdf; sourceTree = "<group>"; };
+		F0E58A0F2AF9B16E004045AD /* FreudDreams.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FreudDreams.pdf; sourceTree = "<group>"; };
+		F0E58A132AFAA0C6004045AD /* Jungtest.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Jungtest.pdf; sourceTree = "<group>"; };
+		F0E58A182AFAA8DD004045AD /* Jungtextlonger.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Jungtextlonger.txt; sourceTree = "<group>"; };
+		F0F6766E2ACCB6B40011302B /* userStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0E58A022AF033B0004045AD /* LangChain in Frameworks */,
 				F059E1A72A968768002777A3 /* Auth0 in Frameworks */,
 				F059E1B72A9D3A82002777A3 /* OpenAIKit in Frameworks */,
 			);
@@ -99,6 +119,8 @@
 		F059E16A2A8D6A9A002777A3 = {
 			isa = PBXGroup;
 			children = (
+				F0E58A082AF3079F004045AD /* TrainingData */,
+				F0E58A032AF0359B004045AD /* env.txt */,
 				F059E1752A8D6A9A002777A3 /* Delphi */,
 				F059E1862A8D6A9B002777A3 /* DelphiTests */,
 				F059E1902A8D6A9B002777A3 /* DelphiUITests */,
@@ -134,6 +156,9 @@
 				F016A0E62AA7A3C90009A36B /* ThemeManager.swift */,
 				F016A0E82AA7C9B80009A36B /* ChatMessage.swift */,
 				F016A0EA2AA8FD220009A36B /* Enviroment.swift */,
+				F016A0EC2ABB64890009A36B /* InputViewModel.swift */,
+				F0F6766E2ACCB6B40011302B /* userStorage.swift */,
+				F05E6AEC2AE98AEC003DB9A6 /* UserData.swift */,
 			);
 			path = Delphi;
 			sourceTree = "<group>";
@@ -167,8 +192,20 @@
 			isa = PBXGroup;
 			children = (
 				F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */,
+				F0E58A052AF16A38004045AD /* LangChainClient.swift */,
 			);
 			path = Chatgpt;
+			sourceTree = "<group>";
+		};
+		F0E58A082AF3079F004045AD /* TrainingData */ = {
+			isa = PBXGroup;
+			children = (
+				F0E58A182AFAA8DD004045AD /* Jungtextlonger.txt */,
+				F0E58A132AFAA0C6004045AD /* Jungtest.pdf */,
+				F0E58A0F2AF9B16E004045AD /* FreudDreams.pdf */,
+				F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */,
+			);
+			path = TrainingData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +227,7 @@
 			packageProductDependencies = (
 				F059E1A62A968768002777A3 /* Auth0 */,
 				F059E1B62A9D3A82002777A3 /* OpenAIKit */,
+				F0E58A012AF033B0004045AD /* LangChain */,
 			);
 			productName = Delphi;
 			productReference = F059E1732A8D6A9A002777A3 /* Delphi.app */;
@@ -266,6 +304,7 @@
 			packageReferences = (
 				F059E1A52A968768002777A3 /* XCRemoteSwiftPackageReference "Auth0" */,
 				F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */,
+				F0E58A002AF033B0004045AD /* XCRemoteSwiftPackageReference "langchain-swift" */,
 			);
 			productRefGroup = F059E1742A8D6A9A002777A3 /* Products */;
 			projectDirPath = "";
@@ -283,9 +322,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0E58A042AF0359B004045AD /* env.txt in Resources */,
+				F0E58A152AFAA0C6004045AD /* Jungtest.pdf in Resources */,
+				F0E58A192AFAA8DD004045AD /* Jungtextlonger.txt in Resources */,
 				F059E1BB2A9D3B8B002777A3 /* Config.xcconfig in Resources */,
+				F0E58A102AF9B16E004045AD /* FreudDreams.pdf in Resources */,
 				F059E17E2A8D6A9B002777A3 /* Preview Assets.xcassets in Resources */,
 				F059E1A92A9687E5002777A3 /* Auth0.plist in Resources */,
+				F0E58A0E2AF5B31F004045AD /* CarlJungData.pdf in Resources */,
 				F059E17B2A8D6A9B002777A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,16 +355,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05E6AED2AE98AEC003DB9A6 /* UserData.swift in Sources */,
+				F0F6766F2ACCB6B40011302B /* userStorage.swift in Sources */,
 				F059E1BD2A9D4E4A002777A3 /* OpenAIClient.swift in Sources */,
 				F059E1792A8D6A9A002777A3 /* ContentView.swift in Sources */,
 				F016A0EB2AA8FD220009A36B /* Enviroment.swift in Sources */,
 				F059E1AB2A9688A1002777A3 /* Login.swift in Sources */,
 				F016A0E92AA7C9B80009A36B /* ChatMessage.swift in Sources */,
 				F059E1A32A967EEF002777A3 /* Userlog.swift in Sources */,
+				F0E58A062AF16A39004045AD /* LangChainClient.swift in Sources */,
 				F059E1AF2A9722AA002777A3 /* InputView.swift in Sources */,
 				F016A0E72AA7A3CA0009A36B /* ThemeManager.swift in Sources */,
 				F059E1772A8D6A9A002777A3 /* DelphiApp.swift in Sources */,
 				F059E1A12A940B73002777A3 /* practice.swift in Sources */,
+				F016A0ED2ABB64890009A36B /* InputViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +717,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F0E58A002AF033B0004045AD /* XCRemoteSwiftPackageReference "langchain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/buhe/langchain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.30.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -681,6 +737,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */;
 			productName = OpenAIKit;
+		};
+		F0E58A012AF033B0004045AD /* LangChain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0E58A002AF033B0004045AD /* XCRemoteSwiftPackageReference "langchain-swift" */;
+			productName = LangChain;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

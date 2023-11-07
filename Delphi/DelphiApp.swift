@@ -9,81 +9,64 @@ import SwiftUI
 
 @main
 struct DelphiApp: App {
-    
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+   
+   // @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var isLoggedin = false
-    let client = AIClient.shared
-    var userStorage = UserStorage.shared
+    @StateObject var sharedUserData = SharedUserData() //store instance of reference type data. owns the data.
+    
+    init() {
+    //    appDelegate.sharedUserData = sharedUserData
+    }
     
     var body: some Scene {
         WindowGroup {
-            if isLoggedin {
-                ContentView(client: client) //pass binding to contentview to use singleton instance
-                //ContentView() //pass binding to contentview to use singleton instance
+               langViewtest()
+        /*    if isLoggedin {
+                //pass binding to contentview to use singleton instance
+//                ContentView(chatsList: $sharedUserData.chatsList)
+                ContentView(userData: sharedUserData)
+                .onAppear() {
+                  sharedUserData.fetchUserData()
+                }
             } else {
                 LoginView(onLoginSuccess: { success in
                      isLoggedin = success
                 })
-            }
-        }
-        .onChange(of: UIApplication.shared.applicationState) { state in
-            switch state {
-            case .inactive, .background: //TODO:  need to modify this when user comes back to  app after being in BG
-                print("app client shutting down")
-                appDelegate.clientShutdown(singletonClient: client)
-            case .active:
-                //app is about to be active
-                print("app active")
-            @unknown default:
-                break
-            }
+            }*/
         }
     }
-    
-
-//when app is about to close, take all chats inside contentViews "chatslist"
-//use .chatMessages instead of $chatMessages bc I want actual value
-//$ gives us the projected value from property wrapper published
- func saveUserData(chatData: [InputViewModel]) {
-    var temp = [[chatMessage]]()
-    for viewModel in chatData {
-        let msgs = viewModel.chatMessages
-        temp.append(msgs)
-    }
-    userStorage.saveChatMessage(chatMessages: temp)
- }
-
 }
-
+/*
 class AppDelegate: NSObject, UIApplicationDelegate {
     
-    func clientShutdown(singletonClient: AIClient) {
-    //    do {
-       //     try singletonClient.httpClient.syncShutdown() //try? siliently discards the error do catch to handle it.
-            singletonClient.urlSession.invalidateAndCancel()
-            print("client has shutdown")
-     /*   } catch {
-            print("error on client shutdown \(error)")
-        }*/
+    var sharedUserData: SharedUserData!  // Reference to the shared data declared inside delhpiApp struct
+    
+    override init() {
+        super.init()
+    }
+    
+    init(sharedUserData: SharedUserData) {
+        self.sharedUserData = sharedUserData  // Initialize the reference to shared data
+     //   sharedUserData.fetchUserData()
+       // super.init()
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+           // Do any necessary app setup
+  //         sharedUserData.fetchUserData()
+           return true
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         // Perform any necessary app setup
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Perform actions when the app is about to become inactive
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Perform actions when the app enters the background
+   //     sharedUserData.fetchUserData()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Perform actions when the app is about to terminate
         // it's important to shutdown the httpClient after all requests are done, even if one failed. See: https://github.com/swift-server/async-http-client
-       
-       
+       print("potat0")
+     //   sharedUserData.client.urlSession.invalidateAndCancel() //need to check if nil before this
+        sharedUserData.saveUserData()
     }
-}
+}*/

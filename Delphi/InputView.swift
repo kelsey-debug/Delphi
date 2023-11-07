@@ -11,7 +11,6 @@
 
 import SwiftUI
 
-//who needs awareness of userStorage?
 struct InputView: View {
    
     @ObservedObject var inputViewModel: InputViewModel
@@ -73,13 +72,17 @@ struct InputView: View {
     //formats message based on type
     func messageView(message: chatMessage) -> some View {
         HStack { //spacers work bc of hstack organization
-            if message.sender == .user {Spacer()}
+           // if message.sender == .user {Spacer()}
+            if message.sender == "user" {Spacer()}
             Text(message.content)
-                .foregroundColor(message.sender == .user ? .white: .black)
+                //.foregroundColor(message.sender == .user ? .white: .black)
+                .foregroundColor(message.sender == "user" ? .white: .black)
                 .padding()
-                .background(message.sender == .user ? Color(uiColor: ThemeManager.shared.secondaryColor): Color(uiColor: ThemeManager.shared.secondAccentColor))
+                //.background(message.sender == .user ? Color(uiColor: ThemeManager.shared.secondaryColor): Color(uiColor: ThemeManager.shared.secondAccentColor))
+                .background(message.sender == "user" ? Color(uiColor: ThemeManager.shared.secondaryColor): Color(uiColor: ThemeManager.shared.secondAccentColor))
                 .cornerRadius(16)
-            if message.sender == .gpt {Spacer()}
+//            if message.sender == .gpt {Spacer()}
+            if message.sender == "gpt" {Spacer()}
         }
     }
  
@@ -87,8 +90,8 @@ struct InputView: View {
 
 struct InputView_Previews: PreviewProvider {
     static var client = AIClient.shared
-    //static var fakeList = chatMessage.testMessages
-    static var fakeVM = InputViewModel(client: client)
+    static var fakeList = chatMessage.testMessages
+    static var fakeVM = InputViewModel(client: client, chatMessages: fakeList)
     //static var fakeVM = InputViewModel(client: client)
   //  static var fakeChatList = [fakeVM]
     

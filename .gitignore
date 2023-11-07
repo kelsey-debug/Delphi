@@ -5,6 +5,7 @@
 #Local Config Files/ secrets
 Config.xcconfig
 .env
+env.txt #temp home for keys
 
 # macOS specific files
 .DS_Store

@@ -4,11 +4,13 @@
 //
 //  Created by Kelsey Larson on 8/28/23.
 
+//TODO: need to add documentloader from langchain-swift library instead of openaikit
 import Foundation
 import OpenAIKit
 import NIO
 import AsyncHTTPClient
 import UIKit
+import LangChain
 
 //singleton httpclient for lifecycle of app, shuts down on app close. Access AIClient.shared
 /***
@@ -16,7 +18,6 @@ COST - limit to 130 words, 200 tokens
  0.006 cents per input, 0.012 cents per output = roughly  0.018 cents per exchange. if there are 15 exchanges, maybe 25 cents overall per conversation
  ***/
 class AIClient: ObservableObject {
-    
     static let shared = AIClient() // ensure a singleton instance of AIClient through lifespan of app using AIClient.shared
     
     var apiKey = Enviroment.apiKey
