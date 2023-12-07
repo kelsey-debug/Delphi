@@ -11,7 +11,15 @@ class UserStorage {
     
     let defaults = UserDefaults.standard
     static var shared = UserStorage()
-  
+    
+    init() {
+     let lastExecutionDateKey = "lastExecutionDate"
+        //the value/key doesnt exist yet, so set it to nil so it can be set later
+      if defaults.object(forKey: lastExecutionDateKey) == nil { //comeback to this logic
+       defaults.set(nil, forKey: lastExecutionDateKey)
+      }
+    }
+    
     func getChatMessages() -> [[chatMessage]] {
        if let encodedData = defaults.data(forKey: "Chats") {
           let decoder = JSONDecoder()

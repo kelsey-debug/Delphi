@@ -21,9 +21,11 @@ class InputViewModel: ObservableObject {
     var VMid = UUID() //to distinguish between conversations/inputviewmodel instances
     var prevMsgs = [String]()
     let client: AIClient
+    var langChainClient: LangChainClient
     
     init(client: AIClient, chatMessages: [chatMessage]?) { //optional init (?) for inputvm chatMessages data
       self.client = client
+      self.langChainClient = LangChainClient()
       if let messages = chatMessages { //if its not nil, assign it to the current vm
         self.chatMessages = messages
       }
@@ -31,7 +33,8 @@ class InputViewModel: ObservableObject {
    
     ///*
     ///TODO: my chatmessages for ONE instance of an inputVM need to all be the same.
-    /// They need to be distinguished between INSTANCES of inputVMs, not instances of ChatMessage */
+    /// They need to be distinguished between INSTANCES of inputVMs, not instances of ChatMessage
+    /// */
     func sendMessage() async {
         if !newMessage.isEmpty {
             let newChat = chatMessage(id: UUID().uuidString,
@@ -43,20 +46,21 @@ class InputViewModel: ObservableObject {
                 chatMessages.append(newChat)
                 prevMsgs.append(newMessage)
             }
-            //TODO: use langchain here!!
-            // make async call to openAI
-          /*  await client.request(userMessage: newMessage, previousMessages: prevMsgs) { result in
+            let sysMsg = await langChainClient.createTemplate(context: newMessage)
+            await client.request(userMessage: newMessage,
+                                 systemMessage: sysMsg,
+                                 previousMessages: prevMsgs) { result in
                 switch result {
                 case .success(let completion):
                     let gptResponse = String(describing: completion.choices[0].message)
-                    let newChat = chatMessage(id: UUID().uuidString, content: gptResponse, dateCreated: Date(), sender: .gpt)
+                    let newChat = chatMessage(id: UUID().uuidString, content: gptResponse, dateCreated: Date(), sender: "gpt")
                     DispatchQueue.main.async { [self] in
                         chatMessages.append(newChat)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            }*/
+            }
         }
     }
 }

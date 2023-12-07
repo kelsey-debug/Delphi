@@ -11,6 +11,7 @@
 		F016A0E92AA7C9B80009A36B /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0E82AA7C9B80009A36B /* ChatMessage.swift */; };
 		F016A0EB2AA8FD220009A36B /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0EA2AA8FD220009A36B /* Enviroment.swift */; };
 		F016A0ED2ABB64890009A36B /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016A0EC2ABB64890009A36B /* InputViewModel.swift */; };
+		F03D9E772B04821D00F86FD7 /* LangChain in Frameworks */ = {isa = PBXBuildFile; productRef = F03D9E762B04821D00F86FD7 /* LangChain */; };
 		F059E1772A8D6A9A002777A3 /* DelphiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1762A8D6A9A002777A3 /* DelphiApp.swift */; };
 		F059E1792A8D6A9A002777A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1782A8D6A9A002777A3 /* ContentView.swift */; };
 		F059E17B2A8D6A9B002777A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059E17A2A8D6A9B002777A3 /* Assets.xcassets */; };
@@ -28,7 +29,8 @@
 		F059E1BB2A9D3B8B002777A3 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F059E1BA2A9D3B8B002777A3 /* Config.xcconfig */; };
 		F059E1BD2A9D4E4A002777A3 /* OpenAIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */; };
 		F05E6AED2AE98AEC003DB9A6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05E6AEC2AE98AEC003DB9A6 /* UserData.swift */; };
-		F0E58A022AF033B0004045AD /* LangChain in Frameworks */ = {isa = PBXBuildFile; productRef = F0E58A012AF033B0004045AD /* LangChain */; };
+		F0A8CD492AFC0B8B00BB3FD9 /* PineconeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0A8CD482AFC0B8B00BB3FD9 /* PineconeSwift */; };
+		F0A8CD4B2AFC0CF200BB3FD9 /* LangChainManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8CD4A2AFC0CF200BB3FD9 /* LangChainManagement.swift */; };
 		F0E58A042AF0359B004045AD /* env.txt in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A032AF0359B004045AD /* env.txt */; };
 		F0E58A062AF16A39004045AD /* LangChainClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E58A052AF16A38004045AD /* LangChainClient.swift */; };
 		F0E58A0E2AF5B31F004045AD /* CarlJungData.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */; };
@@ -56,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F011AEA72B04107600FA6DD2 /* langchain-swift-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "langchain-swift-main"; path = "../../../Downloads/langchain-swift-main"; sourceTree = "<group>"; };
 		F016A0E62AA7A3C90009A36B /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		F016A0E82AA7C9B80009A36B /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F016A0EA2AA8FD220009A36B /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIClient.swift; sourceTree = "<group>"; };
 		F05E6AEC2AE98AEC003DB9A6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F06744012A9FE82A007520A1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0A8CD4A2AFC0CF200BB3FD9 /* LangChainManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangChainManagement.swift; sourceTree = "<group>"; };
 		F0E58A032AF0359B004045AD /* env.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = env.txt; sourceTree = "<group>"; };
 		F0E58A052AF16A38004045AD /* LangChainClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangChainClient.swift; sourceTree = "<group>"; };
 		F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CarlJungData.pdf; sourceTree = "<group>"; };
@@ -93,9 +97,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0E58A022AF033B0004045AD /* LangChain in Frameworks */,
 				F059E1A72A968768002777A3 /* Auth0 in Frameworks */,
 				F059E1B72A9D3A82002777A3 /* OpenAIKit in Frameworks */,
+				F03D9E772B04821D00F86FD7 /* LangChain in Frameworks */,
+				F0A8CD492AFC0B8B00BB3FD9 /* PineconeSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,15 +121,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F03D9E752B04821D00F86FD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F059E16A2A8D6A9A002777A3 = {
 			isa = PBXGroup;
 			children = (
+				F011AEA72B04107600FA6DD2 /* langchain-swift-main */,
 				F0E58A082AF3079F004045AD /* TrainingData */,
 				F0E58A032AF0359B004045AD /* env.txt */,
 				F059E1752A8D6A9A002777A3 /* Delphi */,
 				F059E1862A8D6A9B002777A3 /* DelphiTests */,
 				F059E1902A8D6A9B002777A3 /* DelphiUITests */,
 				F059E1742A8D6A9A002777A3 /* Products */,
+				F03D9E752B04821D00F86FD7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +207,7 @@
 			children = (
 				F059E1BC2A9D4E4A002777A3 /* OpenAIClient.swift */,
 				F0E58A052AF16A38004045AD /* LangChainClient.swift */,
+				F0A8CD4A2AFC0CF200BB3FD9 /* LangChainManagement.swift */,
 			);
 			path = Chatgpt;
 			sourceTree = "<group>";
@@ -227,7 +242,8 @@
 			packageProductDependencies = (
 				F059E1A62A968768002777A3 /* Auth0 */,
 				F059E1B62A9D3A82002777A3 /* OpenAIKit */,
-				F0E58A012AF033B0004045AD /* LangChain */,
+				F0A8CD482AFC0B8B00BB3FD9 /* PineconeSwift */,
+				F03D9E762B04821D00F86FD7 /* LangChain */,
 			);
 			productName = Delphi;
 			productReference = F059E1732A8D6A9A002777A3 /* Delphi.app */;
@@ -304,7 +320,7 @@
 			packageReferences = (
 				F059E1A52A968768002777A3 /* XCRemoteSwiftPackageReference "Auth0" */,
 				F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */,
-				F0E58A002AF033B0004045AD /* XCRemoteSwiftPackageReference "langchain-swift" */,
+				F0A8CD472AFC0B8B00BB3FD9 /* XCRemoteSwiftPackageReference "PineconeSwift" */,
 			);
 			productRefGroup = F059E1742A8D6A9A002777A3 /* Products */;
 			projectDirPath = "";
@@ -365,6 +381,7 @@
 				F059E1A32A967EEF002777A3 /* Userlog.swift in Sources */,
 				F0E58A062AF16A39004045AD /* LangChainClient.swift in Sources */,
 				F059E1AF2A9722AA002777A3 /* InputView.swift in Sources */,
+				F0A8CD4B2AFC0CF200BB3FD9 /* LangChainManagement.swift in Sources */,
 				F016A0E72AA7A3CA0009A36B /* ThemeManager.swift in Sources */,
 				F059E1772A8D6A9A002777A3 /* DelphiApp.swift in Sources */,
 				F059E1A12A940B73002777A3 /* practice.swift in Sources */,
@@ -717,17 +734,21 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		F0E58A002AF033B0004045AD /* XCRemoteSwiftPackageReference "langchain-swift" */ = {
+		F0A8CD472AFC0B8B00BB3FD9 /* XCRemoteSwiftPackageReference "PineconeSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/buhe/langchain-swift.git";
+			repositoryURL = "https://github.com/ArchieGoodwin/PineconeSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.30.0;
+				minimumVersion = 0.7.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F03D9E762B04821D00F86FD7 /* LangChain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LangChain;
+		};
 		F059E1A62A968768002777A3 /* Auth0 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F059E1A52A968768002777A3 /* XCRemoteSwiftPackageReference "Auth0" */;
@@ -738,10 +759,10 @@
 			package = F059E1B52A9D3A82002777A3 /* XCRemoteSwiftPackageReference "openai-kit" */;
 			productName = OpenAIKit;
 		};
-		F0E58A012AF033B0004045AD /* LangChain */ = {
+		F0A8CD482AFC0B8B00BB3FD9 /* PineconeSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F0E58A002AF033B0004045AD /* XCRemoteSwiftPackageReference "langchain-swift" */;
-			productName = LangChain;
+			package = F0A8CD472AFC0B8B00BB3FD9 /* XCRemoteSwiftPackageReference "PineconeSwift" */;
+			productName = PineconeSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

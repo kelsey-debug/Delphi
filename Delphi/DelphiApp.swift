@@ -10,18 +10,18 @@ import SwiftUI
 @main
 struct DelphiApp: App {
    
-   // @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+ //   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var isLoggedin = false
     @StateObject var sharedUserData = SharedUserData() //store instance of reference type data. owns the data.
     
     init() {
-    //    appDelegate.sharedUserData = sharedUserData
+  //     appDelegate.sharedUserData = sharedUserData
     }
     
     var body: some Scene {
         WindowGroup {
-               langViewtest()
-        /*    if isLoggedin {
+          //     langViewtest()
+            if isLoggedin {
                 //pass binding to contentview to use singleton instance
 //                ContentView(chatsList: $sharedUserData.chatsList)
                 ContentView(userData: sharedUserData)
@@ -32,7 +32,7 @@ struct DelphiApp: App {
                 LoginView(onLoginSuccess: { success in
                      isLoggedin = success
                 })
-            }*/
+            }
         }
     }
 }

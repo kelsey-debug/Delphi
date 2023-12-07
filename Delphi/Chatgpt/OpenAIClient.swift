@@ -10,7 +10,6 @@ import OpenAIKit
 import NIO
 import AsyncHTTPClient
 import UIKit
-import LangChain
 
 //singleton httpclient for lifecycle of app, shuts down on app close. Access AIClient.shared
 /***
@@ -40,12 +39,12 @@ class AIClient: ObservableObject {
     //TODO: need to send previous context into bot in order to have real convo
     //previous context send
     //token calculations
-    func request(userMessage: String, previousMessages: [String], onCompletion: (Result<Chat,APIErrorResponse>) -> Void) async {
+    func request(userMessage: String, systemMessage: String, previousMessages: [String], onCompletion: (Result<Chat,APIErrorResponse>) -> Void) async {
         do {
             //todo: move the math for extracting strings from prevMessages to caller if it works here
             //move the parameters for request customization elsewhere
             let userMsg: Chat.Message = .user(content: userMessage)
-            let sysMsg: Chat.Message = .system(content: "you are a helpful assistant who is curious about this inquiry.")
+            let sysMsg: Chat.Message = .system(content: systemMessage)
             var startIndex = 0
             var requestMsgs = [Chat.Message]()
             
@@ -65,7 +64,7 @@ class AIClient: ObservableObject {
             let completion = try await
             openAIClient.chats.create(model: Model.GPT4.gpt4,
                                       messages: requestMsgs,
-                                      maxTokens: 40) //maxx tokens to use for a response from api
+                                      maxTokens: 100) //maxx tokens to use for a response from api
             //  print("Response from model: \(String(describing: completion.choices[0].message))")
             onCompletion(.success(completion))
             

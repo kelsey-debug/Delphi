@@ -3,7 +3,7 @@
 //  Delphi
 //
 //  Created by Kelsey Larson on 10/31/23.
-//AIClient responsible for training model, making requests
+//class == reference, struct == copies created
 
 import Foundation
 import UIKit
@@ -11,77 +11,42 @@ import NIO
 import SwiftUI
 import LangChain
 import AsyncHTTPClient
+import PineconeSwift
 
-//class == reference, struct == copies created
-struct langViewtest: View {
+class LangChainClient: ObservableObject {
+    var vectorManagement = LangChainManagement() //index calculations
     
-    var body: some View {
-        NavigationView {
-          LangChainClient()
-        }
-    }
-}
 
-//class LangChainClient: ObservableObject {
-struct LangChainClient: View {
-    //    static let shared = LangChainClient() //singleton instance for lifespan
-    
-    var body: some View {
-        VStack {
-            Text(output)
-                .padding()
-                .onAppear {
-                    performOperations(userMessage: "Hi there", previousMessages: [""])
-                }
-        }
+   
+    //talks to pinecone index via vectorManagement.
+    func createTemplate(context: String) async -> String {
+        vectorManagement.PopulateIndex() //make sure our index is populated
+        let indexContext = await vectorManagement.queryIndex(newQuery: context)
+        let template =
+        """
+           You are an expert in the field of dream analysis and interpretation. You strive to give the user understanding on the dream in their concious life, and also understanding of their unconcious minds choices. Your goal is to help deepen someones understanding in the way they think and function, through the understanding of their dreams. Use the dream that is described to help the user. Use previous components of the conversation to modify the conversation as it flows. The following information is relative to their inquiry and should be used: \(indexContext)"
+        """
+        return template
     }
     
-    @State private var output: String = ""
-    
-    func performOperations(userMessage: String, previousMessages: [String]) //need to add a completion handler here to return result ot inputVM
+    //TODO: change this to modify template based on results of langchain query
+    //this will be used instead of openAiClient request if it proves not satisfactory
+    func performOperations(userMessage: String, previousMessages: [String]) //need to add a completion handler here to return result to inputVM
     {
         
         let template =
         """
            You are an expert at the field of dream analysis and interpretation. You strive to give the user understanding on the dream in their concious life, and also understanding of their unconcious minds choices. Your goal is to help deepen someones understanding in the way they think and function, through the understanding of their dreams. Use the dream that is described to help the user. Use previous components of the conversation to modify the conversation as it flows. {human_input} {history}"
         """
-        let prompt = PromptTemplate(input_variables: ["history", "human_input"],
+        _ = PromptTemplate(input_variables: ["history", "human_input"],
                                     partial_variable: [:],
                                     template: template)
-        Vectorize()
-    }
-    
-    func Vectorize () {
-        Task {
-            let documentString = ModifyFile()
-            let textSplitter = CharacterTextSplitter(chunk_size: 2000, chunk_overlap: 200)
-            let splitText  = textSplitter.split_text(text: documentString)
-            print("chunk count", splitText.count)
-            let embeddings = OpenAIEmbeddings() //uses Ada
-            let vector = await embeddings.embedQuery(text: splitText.first!)
-            print("resulting vector 🌈:", vector)
-        }
-    }
-    
-    func ModifyFile () -> String {
-        let filePath = "Jungtextlonger.txt"
-        let nameAndExt = filePath.split(separator: ".")
-        let name = "\(nameAndExt[0])"
-        let ext = "\(nameAndExt[1])"
-        var moddedData = ""
-        if let res = Bundle.main.path(forResource: name, ofType: ext) {
-            do {
-                var text = try String(contentsOfFile: res)
-                moddedData = text.replacingOccurrences(of: "\n", with: "\n\n")
-            } catch {
-                print("cant retrieve string contents of file")
-            }
-        }else {
-            print("file DNE")
-        }
-        return moddedData
+        //        Vectorize()
     }
 }
+
+
+
 
 /*
 this sounds like I need to make a few steps.
@@ -260,3 +225,80 @@ this sounds like I need to make a few steps.
      }
      }
      }*/
+
+/*var body: some View {
+        VStack {
+            Text(output)
+                .padding()
+                .onAppear {
+                    performOperations(userMessage: "Hi there", previousMessages: [""])
+                }
+        }
+    }
+    
+    @State private var output: String = ""
+*/
+    
+/*
+struct langViewtest: View {
+    
+    var body: some View {
+        NavigationView {
+          LangChainClient()
+        }
+    }
+}*/
+//struct LangChainClient: View {
+    //    static let shared = LangChainClient() //singleton instance for lifespan
+ /*
+    func Vectorize () {
+        Task {
+            //move the task of creating vectors, embeddings, to vector management
+            let documentString = ModifyFile(filePath: "Jungtextlonger.txt")
+            let textSplitter = CharacterTextSplitter(chunk_size: 2000, chunk_overlap: 400)
+            let splitText  = textSplitter.split_text(text: documentString)
+            print("chunk count", splitText.count)
+            var embeddings = OpenAIEmbeddings() //uses Ada
+            var i = 0
+            var embeddingList = [EmbedResult]()
+            
+            for chunk in splitText {
+                let vector = await embeddings.embedQuery(text: chunk)
+                let vectorConform = vector.map { Double($0) }
+                let embed = EmbedResult(index: i, embedding: vectorConform, text: chunk)
+                i += 1
+                embeddingList.append(embed)
+                print("resulting vector 🌈:", vector)
+            }
+            
+            do {
+              try embeddings.shutdown()
+            } catch {
+                print("shutdown http failed")
+            }
+            //TODO: figure out how to send message in multiple calls. just splitting in half for now.
+            let halfIndex = embeddingList.count/4
+            let halvedEmbeddingList = Array(embeddingList[..<halfIndex])
+            vectorManagement.upsertEmbeddings(embeddings: halvedEmbeddingList)
+            //vectorManagement.createEmbeddings(embeddings: embeddingList)
+        }
+    }
+   
+    //retrieve and conform data to prep for pinecone upsert
+    func ModifyFile (filePath: String) -> String {
+        let nameAndExt = filePath.split(separator: ".")
+        let name = "\(nameAndExt[0])"
+        let ext = "\(nameAndExt[1])"
+        var moddedData = ""
+        if let res = Bundle.main.path(forResource: name, ofType: ext) {
+            do {
+                let text = try String(contentsOfFile: res)
+                moddedData = text.replacingOccurrences(of: "\n", with: "\n\n")
+            } catch {
+                print("cant retrieve string contents of file")
+            }
+        }else {
+            print("file DNE")
+        }
+        return moddedData
+    }*/
