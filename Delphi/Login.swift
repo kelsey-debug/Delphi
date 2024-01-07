@@ -11,24 +11,35 @@ import Auth0
 
 struct LoginView: View {
     let onLoginSuccess: (Bool) -> Void //callback func to progress into main app post login
+    @State private var showSplash = true
     
   var body: some View {
       ZStack {
-          Color(ThemeManager.shared.primaryColor)
-            .edgesIgnoringSafeArea(.all)
-      VStack {
-         Text("Delphi welcomes you")
-              .font(.title)
-              .bold()
-        Button("Login"){
-            login()
-        }.foregroundColor(.black)
-        .cornerRadius(10.0)
-        Button("Logout"){
-              logout()
-        }.foregroundColor(.black)
+          if showSplash {
+              splashView()
+          } else {
+              Color(ThemeManager.shared.primaryColor)
+              .edgesIgnoringSafeArea(.all)
+              VStack {
+                  Text("Delphi welcomes you")
+                      .font(.title)
+                      .bold()
+                  Button("Login"){
+                      login()
+                  }.foregroundColor(.black)
+                      .cornerRadius(10.0)
+                  Button("Logout"){
+                      logout()
+                  }.foregroundColor(.black)
+              }
+       }
       }
-     }
+      .onAppear {
+          Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
+                          showSplash = false
+                          timer.invalidate()
+          }
+      }
   }
     
     func login() {

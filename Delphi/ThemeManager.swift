@@ -24,7 +24,7 @@ public class ThemeManager {
        // primaryColor = UIColor(red: 0.22, green: 0.28, blue: 0.44, alpha: 1.00)
         primaryColor = .white
         //secondaryColor = UIColor(red: 0.35, green: 0.31, blue: 0.52, alpha: 1.00)
-        secondaryColor = .blue
+        secondaryColor = .black
         accentColor = UIColor(red: 0.53, green: 0.42, blue: 0.59, alpha: 1.00)
         //secondAccentColor = UIColor(red: 0.84, green: 0.76, blue: 0.88, alpha: 1.00)
         secondAccentColor = .gray

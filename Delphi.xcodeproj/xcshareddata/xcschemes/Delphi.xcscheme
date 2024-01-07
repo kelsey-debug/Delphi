@@ -22,6 +22,22 @@
                </EnvironmentBuildable>
             </ActionContent>
          </ExecutionAction>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;xcconfigFile=&quot;${SRCROOT}/Delphi/Config.xcconfig&quot;&#10;plistFile=&quot;${SRCROOT}/Delphi/Auth0.plist&quot;&#10;&#10;# Read the values from the .xcconfig file&#10;clientID=$(grep &apos;AUTH0_CLIENT_ID&apos; &quot;$xcconfigFile&quot; | head -n 1 | awk -F= &apos;{gsub(/ /, &quot;&quot;, $NF); print $NF}&apos;)&#10;clientDomain=$(grep &apos;AUTH0_DOMAIN&apos; &quot;$xcconfigFile&quot; | head -n 1 | awk -F= &apos;{gsub(/ /, &quot;&quot;, $NF); print $NF}&apos;)&#10;&#10;# Write the values to the .plist file&#10;defaults write &quot;$plistFile&quot; ClientId &quot;$clientID&quot;&#10;defaults write &quot;$plistFile&quot; Domain &quot;$clientDomain&quot;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "F059E1722A8D6A9A002777A3"
+                     BuildableName = "Delphi.app"
+                     BlueprintName = "Delphi"
+                     ReferencedContainer = "container:Delphi.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
       </PreActions>
       <BuildActionEntries>
          <BuildActionEntry

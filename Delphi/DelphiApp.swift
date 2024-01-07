@@ -12,6 +12,7 @@ struct DelphiApp: App {
    
  //   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var isLoggedin = false
+    
     @StateObject var sharedUserData = SharedUserData() //store instance of reference type data. owns the data.
     
     init() {

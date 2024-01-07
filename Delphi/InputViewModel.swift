@@ -52,7 +52,7 @@ class InputViewModel: ObservableObject {
                                  previousMessages: prevMsgs) { result in
                 switch result {
                 case .success(let completion):
-                    let gptResponse = String(describing: completion.choices[0].message)
+                    let gptResponse = String(describing: completion.choices[0].message.content)
                     let newChat = chatMessage(id: UUID().uuidString, content: gptResponse, dateCreated: Date(), sender: "gpt")
                     DispatchQueue.main.async { [self] in
                         chatMessages.append(newChat)
