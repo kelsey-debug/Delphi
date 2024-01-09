@@ -3,7 +3,7 @@
 *.xcworkspace
 
 #Local Config Files/ secrets
-Config.xcconfig
+#Config.xcconfig
 .env
 env.txt #temp home for keys
 
