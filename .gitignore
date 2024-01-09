@@ -21,7 +21,6 @@ xcuserdata/
 *.xcuserstate
 
 # Xcode project files (ensure xcodeproj file not added)
-!*.xcodeproj 
+#!*.xcodeproj 
 
 #Auth0 info
-Auth0.plist

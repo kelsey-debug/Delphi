@@ -17,4 +17,6 @@ Pinecone Vectors
 Swift, particulary declarative SwiftUI using MVVM design principles 
 
 
+To build and run: 
+All resources keys must be personally added in the config.xcconfig file. A safe way to do this is to have an env file with the  keys and the project scheme run a script that populates the enviroment variables in the xcconfig upon building. The script then takes these values from xcconfig and populates the related plists.  
 Demo: 

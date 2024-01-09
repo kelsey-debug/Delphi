@@ -10,8 +10,6 @@ import LangChain
 
 class LangChainManagement {
    
-  /*  var pinecone = PineconeSwift(apikey: "INSERTKEY",
-                                 baseURL: "INSERTURL")*/
     var pinecone = PineconeSwift(apikey: Enviroment.pineconeKey,
                                  baseURL: Enviroment.pineconebaseURL)
    // var embeddingTech = OpenAIEmbeddings() //uses Ada //may be causing shutdown issue here
