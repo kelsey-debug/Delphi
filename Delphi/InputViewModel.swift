@@ -37,7 +37,7 @@ class InputViewModel: ObservableObject {
     /// */
     func sendMessage() async {
         if !newMessage.isEmpty {
-            let newChat = chatMessage(id: UUID().uuidString,
+            let newChat = chatMessage(id: UUID(),
                                       content: newMessage,
                                       dateCreated: Date(),
                                    //   sender: .user)
@@ -53,7 +53,7 @@ class InputViewModel: ObservableObject {
                 switch result {
                 case .success(let completion):
                     let gptResponse = String(describing: completion.choices[0].message.content)
-                    let newChat = chatMessage(id: UUID().uuidString, content: gptResponse, dateCreated: Date(), sender: "gpt")
+                    let newChat = chatMessage(id: UUID(), content: gptResponse, dateCreated: Date(), sender: "gpt")
                     DispatchQueue.main.async { [self] in
                         chatMessages.append(newChat)
                     }

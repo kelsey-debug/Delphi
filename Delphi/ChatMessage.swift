@@ -9,7 +9,7 @@
 import Foundation
 
 struct chatMessage: Codable, Equatable {
-    let id: String
+    let id: UUID
     let content: String
     let dateCreated: Date
    // let sender: chatType
@@ -21,7 +21,11 @@ public enum chatType: String, Codable {
     case gpt
 }
 
-
+extension UUID: Identifiable {
+    public var id: UUID {
+        self
+    }
+}
 extension chatMessage {
    /* static let testMessages = [
         chatMessage(id: UUID().uuidString, content: "hi there user", dateCreated: Date(), sender: .user),
@@ -30,9 +34,9 @@ extension chatMessage {
         chatMessage(id: UUID().uuidString, content: "im aliveeee", dateCreated: Date(), sender: .gpt)
     ]*/
     static let testMessages = [
-        chatMessage(id: UUID().uuidString, content: "hi there user", dateCreated: Date(), sender: "user"),
-        chatMessage(id: UUID().uuidString, content: "this is a msg", dateCreated: Date(), sender: "gpt"),
-        chatMessage(id: UUID().uuidString, content: "childhood thoughts user", dateCreated: Date(), sender: "user"),
-        chatMessage(id: UUID().uuidString, content: "im aliveeee", dateCreated: Date(), sender: "gpt")
+        chatMessage(id: UUID(), content: "hi there user", dateCreated: Date(), sender: "user"),
+        chatMessage(id: UUID(), content: "this is a msg", dateCreated: Date(), sender: "gpt"),
+        chatMessage(id: UUID(), content: "childhood thoughts user", dateCreated: Date(), sender: "user"),
+        chatMessage(id: UUID(), content: "im aliveeee", dateCreated: Date(), sender: "gpt")
     ]
 }

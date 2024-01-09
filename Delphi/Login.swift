@@ -18,19 +18,27 @@ struct LoginView: View {
           if showSplash {
               splashView()
           } else {
-              Color(ThemeManager.shared.primaryColor)
+              Color(ThemeManager.shared.accentColor)
               .edgesIgnoringSafeArea(.all)
               VStack {
                   Text("Delphi welcomes you")
                       .font(.title)
                       .bold()
+                      .padding(.top, 100)
                   Button("Login"){
                       login()
-                  }.foregroundColor(.black)
-                      .cornerRadius(10.0)
+                  }
+                  .foregroundColor(.black)
+                  .background( Color(uiColor: ThemeManager.shared.secondaryColor))
+                  .cornerRadius(5)
+                  .padding(10)
                   Button("Logout"){
                       logout()
                   }.foregroundColor(.black)
+                   .background( Color(uiColor: ThemeManager.shared.secondaryColor))
+                   .cornerRadius(5)
+                  .padding(10)
+                  Spacer()
               }
        }
       }

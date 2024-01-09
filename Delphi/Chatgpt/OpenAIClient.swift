@@ -65,7 +65,6 @@ class AIClient: ObservableObject {
             openAIClient.chats.create(model: Model.GPT4.gpt4,
                                       messages: requestMsgs,
                                       maxTokens: 300) //maxx tokens to use for a response from api
-            //  print("Response from model: \(String(describing: completion.choices[0].message))")
             onCompletion(.success(completion))
             
         } catch let error as APIErrorResponse {

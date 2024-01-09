@@ -18,15 +18,13 @@ class LangChainClient: ObservableObject {
    
    //talks to pinecone index via vectorManagement.
    func createTemplate(context: String) async -> String {
-    //    vectorManagement.PopulateIndex() //make sure our index is populated. test this with real device later
+        vectorManagement.PopulateIndex() //make sure our index is populated. test this with real device later
         let indexContext = await vectorManagement.queryIndex(newQuery: context)
         var templateString = ""
         if let indexString = indexContext.data(using: .utf8) {
            do {
                if let json = try JSONSerialization.jsonObject(with: indexString, options: []) as? [String: Any],
                   let stringValue = json["text"] as? String {
-                   // print("SUCCESS")
-                    //print(stringValue)
                     templateString = stringValue
                }
            } catch {
@@ -48,8 +46,7 @@ class LangChainClient: ObservableObject {
            Here is relevant data to supplement the response:
            \(templateString)
        """
-        print(template)
-///       If possible, ask questions to the user that may clarify if your analysis is correct
+        //print(template)
         return template
     }
     

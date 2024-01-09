@@ -52,7 +52,6 @@ public enum Enviroment {
         guard let key = Enviroment.infoDict[Keys.pineconebaseURL] as? String else {
             fatalError("pineconebaseURL in plist not found")
         }
-        print(key)
         return key
     }()
     
@@ -60,7 +59,6 @@ public enum Enviroment {
         guard let key = Enviroment.infoDict[Keys.pineconeKey] as? String else {
             fatalError("pineconeKey in plist not found")
         }
-        print(key)
         return key
     }()
     

@@ -21,12 +21,11 @@ public class ThemeManager {
     public let secondAccentColor: UIColor
        
     private init() {
-       // primaryColor = UIColor(red: 0.22, green: 0.28, blue: 0.44, alpha: 1.00)
-        primaryColor = .white
-        //secondaryColor = UIColor(red: 0.35, green: 0.31, blue: 0.52, alpha: 1.00)
-        secondaryColor = .black
-        accentColor = UIColor(red: 0.53, green: 0.42, blue: 0.59, alpha: 1.00)
-        //secondAccentColor = UIColor(red: 0.84, green: 0.76, blue: 0.88, alpha: 1.00)
-        secondAccentColor = .gray
+        primaryColor = UIColor(red: 0.90, green: 0.88, blue: 0.85, alpha: 1.00) //grey
+        secondaryColor = UIColor(red: 0.98, green: 0.98, blue: 0.95, alpha: 1.00) //cream
+        accentColor = UIColor(red: 0.67, green: 0.84, blue: 0.85, alpha: 1.00) //light blue
+        secondAccentColor = UIColor(red: 0.57, green: 0.78, blue: 0.81, alpha: 1.00) //darker blue
+//        primaryColor = .white
+//        secondaryColor = .black
     }
 }

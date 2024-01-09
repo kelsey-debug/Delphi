@@ -19,14 +19,19 @@ struct ContentView: View {
          ZStack {
              Color(ThemeManager.shared.primaryColor)
               .edgesIgnoringSafeArea(.all)
-             ForEach(userData.chatsList.indices, id: \.self) { index in
+             List {
+              ForEach(userData.chatsList.indices, id: \.self) { index in
                  let vm = userData.chatsList[index]
-                 if !vm.chatMessages.isEmpty { //TODO: need to delete viewmodels with no chat data @ userstorage save
+                 if !vm.chatMessages.isEmpty {
                    previousChats(index: index)
                  }
+              }
+              .onDelete(perform: { indexSet in
+                removeRows(at: indexSet)})
              }
+             
             .navigationTitle("Delphis Dialogues")
-             //this below creates the new inputvm, should always create a new?
+            .foregroundColor(.black)
             .navigationBarItems(trailing:
                                NavigationLink(destination:
                                                 //InputView(inputViewModel:InputViewModel(client: AIClient.shared, chatMessages: nil),
@@ -35,8 +40,13 @@ struct ContentView: View {
                 Image(systemName: "square.and.pencil")
                     .foregroundColor(.black)
                 })
+            .toolbar {
+                EditButton()
+                    .accentColor(.black)
+            }
+            
          }
-      }
+     }.accentColor(.black)
    }
    
     //format the archived chats,save the chats as they come in.
@@ -48,10 +58,11 @@ struct ContentView: View {
         return NavigationLink(destination: inputView) {
             Text("\(formattedText)...")
                 .foregroundColor(.black)
-                .padding()
-                .background(Color(uiColor: ThemeManager.shared.secondaryColor))
-                .cornerRadius(16)
+                //.padding()
+                //.background(Color(uiColor: ThemeManager.shared.primaryColor))
+                //.cornerRadius(16)
         }
+        
     }
     
     //format string for display of prev dialogs
@@ -64,16 +75,16 @@ struct ContentView: View {
     }
 }
 
-/*/below func not in final product- just to test and have preview of view as u work
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
      //   let client = AIClient.shared
      //   ContentView(client: client) //client no longer needed in contentview
-        let list = [InputViewModel(client: AIClient.shared, chatMessages: chatMessage.testMessages)]
-        ContentView(chatsList: list)
+//        let list = [InputViewModel(client: AIClient.shared, chatMessages: chatMessage.testMessages)]
+        ContentView(userData: SharedUserData())
     }
 }
 
+/*/below func not in final product- just to test and have preview of view as u work
 
   .toolbar {
  ToolbarItem(placement: .navigationBarLeading) {
