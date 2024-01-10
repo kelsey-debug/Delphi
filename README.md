@@ -9,7 +9,9 @@ works of Freud, Jung and Adler.
 
 How does Delphi work?
 Delphi combines an LLM trained on vectors of dream psychology in order to customize queries and responses to be relevant to dream analysis. Delphis diction is customized to help a user understand their dreams without sounding overly profesional. 
-Pasted image 20231030103901.png
+
+![image](https://github.com/kelsey-debug/DelphiPub/assets/57580796/c22be628-362e-4feb-ace3-2a2e8d4e9d78)
+
 
 What technology is used?
 Customized ChatGPT3-ADA model
