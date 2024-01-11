@@ -4,23 +4,19 @@
 //
 //  Created by Kelsey Larson on 8/28/23.
 
-//TODO: need to add documentloader from langchain-swift library instead of openaikit
 import Foundation
 import OpenAIKit
 import NIO
 import AsyncHTTPClient
 import UIKit
 
+/***COST - limit to 130 words, 200 tokens 0.006 cents per input, 0.012 cents per output = roughly  0.018 cents per exchange. **/
 //singleton httpclient for lifecycle of app, shuts down on app close. Access AIClient.shared
-/***
-COST - limit to 130 words, 200 tokens
- 0.006 cents per input, 0.012 cents per output = roughly  0.018 cents per exchange. if there are 15 exchanges, maybe 25 cents overall per conversation
- ***/
 class AIClient: ObservableObject {
-    static let shared = AIClient() // ensure a singleton instance of AIClient through lifespan of app using AIClient.shared
+    static let shared = AIClient()
     
     var apiKey = Enviroment.apiKey
-  //  var organization = Enviroment.organization //not needed if I have only 1 org
+  //  var organization = Enviroment.organization //not needed if only 1 org exists
     var openAIClient: OpenAIKit.Client
     var urlSession: URLSession
    
@@ -33,20 +29,17 @@ class AIClient: ObservableObject {
    
     /* -----------
       system - external instructions to help steer convo with context and behavior suggestions for assistant
-      user - msg that actual customer sends
+      user - msg that actual user sends
       assistant - msg that gpt generates in response
      ------------ */
-    //TODO: need to send previous context into bot in order to have real convo
-    //previous context send
-    //token calculations
     func request(userMessage: String, systemMessage: String, previousMessages: [String], onCompletion: (Result<Chat,APIErrorResponse>) -> Void) async {
         do {
             //todo: move the math for extracting strings from prevMessages to caller if it works here
             //move the parameters for request customization elsewhere
             let userMsg: Chat.Message = .user(content: userMessage)
             let sysMsg: Chat.Message = .system(content: systemMessage)
-            var startIndex = 0
             var requestMsgs = [Chat.Message]()
+            var startIndex = 0
             
             requestMsgs.append(userMsg)
             requestMsgs.append(sysMsg)
@@ -64,7 +57,7 @@ class AIClient: ObservableObject {
             let completion = try await
             openAIClient.chats.create(model: Model.GPT4.gpt4,
                                       messages: requestMsgs,
-                                      maxTokens: 300) //maxx tokens to use for a response from api
+                                      maxTokens: 250) //maxx tokens to use for a response from api
             onCompletion(.success(completion))
             
         } catch let error as APIErrorResponse {

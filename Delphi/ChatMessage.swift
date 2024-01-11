@@ -3,7 +3,6 @@
 //  Delphi
 //
 //  Created by Kelsey Larson on 9/5/23.
-// the message itself that is inside the list of chats.
 //need to archive the chatMessage struct in order to be an NSData type. Need to also make the enum encodable
 
 import Foundation

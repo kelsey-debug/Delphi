@@ -20,6 +20,7 @@ Delphi combines an LLM with vector data of dream psychology in order to customiz
 - ChatGPT3-ADA model, customized with pinecone training data
 - Pinecone Vectors 
 - Swift, particulary declarative SwiftUI using MVVM design principles 
+- Use of 3rd party open source libs such as LangChain swift 
 
 
 > [!IMPORTANT] 

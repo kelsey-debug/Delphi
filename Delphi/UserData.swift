@@ -8,15 +8,14 @@
 import Foundation
 
 class SharedUserData: ObservableObject {
-    @Published var chatsList: [InputViewModel] = [] //published allows observers to automatically get the changes made
+    @Published var chatsList: [InputViewModel] = []
     var userStorage = UserStorage.shared
     let client = AIClient.shared
     
-    //$ gives us the projected value from property wrapper published
     func saveUserData() {
         var temp = [[chatMessage]]()
         for viewModel in chatsList {
-            let msgs = viewModel.chatMessages //use .chatMessages instead of $chatMessages bc I want actual value
+            let msgs = viewModel.chatMessages
             temp.append(msgs)
         }
         userStorage.saveChatMessage(chatMessages: temp)

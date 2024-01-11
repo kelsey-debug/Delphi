@@ -6,8 +6,7 @@
 //main UI for your program
 import SwiftUI
 import Auth0
-//the binded chatslist is now being sent from delphiapp. need to udpate $ binding usage here
-//to update binded value use $. to just ACCESS current value dont use binding
+
 struct ContentView: View {
 //    let client: AIClient //swiftui auto assigns this from val passed in
    // @Binding var chatsList: [InputViewModel] //child view can read and write val of chatslist in the parent view (delphi App)
@@ -58,9 +57,6 @@ struct ContentView: View {
         return NavigationLink(destination: inputView) {
             Text("\(formattedText)...")
                 .foregroundColor(.black)
-                //.padding()
-                //.background(Color(uiColor: ThemeManager.shared.primaryColor))
-                //.cornerRadius(16)
         }
         
     }
@@ -77,27 +73,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-     //   let client = AIClient.shared
-     //   ContentView(client: client) //client no longer needed in contentview
-//        let list = [InputViewModel(client: AIClient.shared, chatMessages: chatMessage.testMessages)]
         ContentView(userData: SharedUserData())
     }
 }
 
-/*/below func not in final product- just to test and have preview of view as u work
-
-  .toolbar {
- ToolbarItem(placement: .navigationBarLeading) {
- EditButton()
- }
- }
- 
- 
- .navigationBarItems(trailing:
-                    NavigationLink(destination:
-                                     InputView(inputViewModel: existingVm ?? InputViewModel(client: AIClient.shared, chatMessages: nil),
-                                             chatsList: $chatsList)) {
-     Image(systemName: "square.and.pencil")
-         .foregroundColor(.black)
-     })
- */
