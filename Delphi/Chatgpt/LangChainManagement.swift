@@ -12,23 +12,16 @@ class LangChainManagement {
    
     var pinecone = PineconeSwift(apikey: Enviroment.pineconeKey,
                                  baseURL: Enviroment.pineconebaseURL)
-   // var embeddingTech = OpenAIEmbeddings() //uses Ada //may be causing shutdown issue here
     var userStorage = UserStorage.shared
-  
-    //takes doc, creates embedding list, upserts
-    //docstring -> vectors ->embeddings
-    //TODO. put this in a loop to go through each source in TrainingData folder
-    //format file into an array of strings, for each chunk create a vector. upsert into pinecone
     
     func retrieveFiles() -> [String] {
       let trainingData = ["FreudDreams.txt","Jungtextlonger.txt"]
       return trainingData
     }
     
+    //format file into an array of strings, for each chunk create a vector. upsert into pinecone
     func upsertEmbeddings() {
         let dreamFiles = retrieveFiles()
-    //  let dreamFiles = ["Jungtextlonger.txt"]
-//      let embeddingTech = OpenAIEmbeddings() //here it will be shutdwon b4 next file
         Task {
             for file in dreamFiles {
                 let embeddingTech = OpenAIEmbeddings()
@@ -46,12 +39,11 @@ class LangChainManagement {
                     embeddingList.append(embed)
                     print("resulting vector 🌈:", vector)
                 }
-                embeddingTech.shutdown() //must be called OUTSIDE embedquery!!
+                embeddingTech.shutdown() //must be called OUTSIDE embedquery as we are waiting for future response
                 //TODO: figure out how to send message in multiple calls. just splitting in half for now.
                 //need nested loops to upsert entire embedding list
                 let halfIndex = embeddingList.count/4
                 let halvedEmbeddingList = Array(embeddingList[..<halfIndex])
-                //   vectorManagement.upsertEmbeddings(embeddings: halvedEmbeddingList)
                 let result = try await pinecone.upsertVectors(with: halvedEmbeddingList, namespace: "")
                 print("RESULT OF UPSERT: ", result)
             }
@@ -76,20 +68,13 @@ class LangChainManagement {
         return IndexData
     }
    
-    //queryString -> embedding -> vector
-    //for each query to be combined with result of queryindex, returned to client?
+    //queryString -> embedding
     func createEmbeddings (Query: String) async -> EmbedResult {
-        let embeddingTech = OpenAIEmbeddings() //uses Ada //may be causing shutdown issue here
+        let embeddingTech = OpenAIEmbeddings()
         let vector = await embeddingTech.embedQuery(text: Query)
-      /*  do {
-            try embeddingTech.shutdown()
-        } catch {
-            print("shutdown http failed")
-        }*/
         embeddingTech.shutdown()
         let vectorConform = vector.map { Double($0) }
         let embed = EmbedResult(index: 1, embedding: vectorConform, text: Query)
-     //   shutDownAda()
         return embed
     }
     
