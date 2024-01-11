@@ -8,44 +8,53 @@ import SwiftUI
 import Auth0
 
 struct ContentView: View {
-//    let client: AIClient //swiftui auto assigns this from val passed in
-   // @Binding var chatsList: [InputViewModel] //child view can read and write val of chatslist in the parent view (delphi App)
    @StateObject var userData: SharedUserData
-   var existingVm: InputViewModel? //temp holding place for vms that exist and dontneed init
+   var existingVm: InputViewModel?
    
    var body: some View {
      NavigationView {
          ZStack {
-             Color(ThemeManager.shared.primaryColor)
-              .edgesIgnoringSafeArea(.all)
+               Color(ThemeManager.shared.secondaryColor)
+              //.edgesIgnoringSafeArea(.all)
+              .ignoresSafeArea(.all)
              List {
               ForEach(userData.chatsList.indices, id: \.self) { index in
                  let vm = userData.chatsList[index]
                  if !vm.chatMessages.isEmpty {
                    previousChats(index: index)
+                    .listRowBackground(Color(ThemeManager.shared.primaryColor))
                  }
               }
               .onDelete(perform: { indexSet in
                 removeRows(at: indexSet)})
              }
-             
-            .navigationTitle("Delphis Dialogues")
-            .foregroundColor(.black)
-            .navigationBarItems(trailing:
-                               NavigationLink(destination:
-                                                //InputView(inputViewModel:InputViewModel(client: AIClient.shared, chatMessages: nil),
-                                                InputView(inputViewModel:InputViewModel(client: AIClient.shared, chatMessages: nil),
-                                                          chatsList: $userData.chatsList)) {
-                Image(systemName: "square.and.pencil")
-                    .foregroundColor(.black)
-                })
-            .toolbar {
-                EditButton()
-                    .accentColor(.black)
-            }
-            
+             .scrollContentBackground(.hidden)
          }
-     }.accentColor(.black)
+         .toolbar {
+                ToolbarItem(placement: .principal) {
+                       VStack {
+                         Text("Delphi Dialogues")
+                           .foregroundColor(.black)
+                       }
+                     }
+                
+                ToolbarItem(placement: .destructiveAction) {
+                    EditButton()
+                        //.accentColor(.black)
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink(destination:
+                            InputView(inputViewModel:InputViewModel(client: AIClient.shared, chatMessages: nil),
+                                chatsList: $userData.chatsList)) {
+                           Image(systemName: "square.and.pencil")
+                           .foregroundColor(.black)
+                            }
+                }
+         }
+         .navigationBarTitleDisplayMode(.large)
+     }
+     .accentColor(.black) //all toolbar items black
+//     .toolbarBackground(.hidden, for: .navigationBar)
    }
    
     //format the archived chats,save the chats as they come in.
@@ -56,9 +65,8 @@ struct ContentView: View {
         let formattedText = displayStrings(textToFormat: currentVM.chatMessages[0].content)
         return NavigationLink(destination: inputView) {
             Text("\(formattedText)...")
-                .foregroundColor(.black)
+              .foregroundColor(.black)
         }
-        
     }
     
     //format string for display of prev dialogs
