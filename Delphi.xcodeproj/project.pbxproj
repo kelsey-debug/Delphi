@@ -34,8 +34,6 @@
 		F07BC7022B3E0F3F005971B2 /* PineconeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F07BC7012B3E0F3F005971B2 /* PineconeSwift */; };
 		F0A8CD4B2AFC0CF200BB3FD9 /* LangChainManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8CD4A2AFC0CF200BB3FD9 /* LangChainManagement.swift */; };
 		F0E58A062AF16A39004045AD /* LangChainClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E58A052AF16A38004045AD /* LangChainClient.swift */; };
-		F0E58A0E2AF5B31F004045AD /* CarlJungData.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */; };
-		F0E58A102AF9B16E004045AD /* FreudDreams.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A0F2AF9B16E004045AD /* FreudDreams.pdf */; };
 		F0E58A192AFAA8DD004045AD /* Jungtextlonger.txt in Resources */ = {isa = PBXBuildFile; fileRef = F0E58A182AFAA8DD004045AD /* Jungtextlonger.txt */; };
 		F0F6766F2ACCB6B40011302B /* userStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F6766E2ACCB6B40011302B /* userStorage.swift */; };
 /* End PBXBuildFile section */
@@ -87,8 +85,6 @@
 		F0A8CD4A2AFC0CF200BB3FD9 /* LangChainManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangChainManagement.swift; sourceTree = "<group>"; };
 		F0D865672B44D59900192C2B /* langchain-swift-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "langchain-swift-main"; path = "../../../Downloads/langchain-swift-main"; sourceTree = "<group>"; };
 		F0E58A052AF16A38004045AD /* LangChainClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangChainClient.swift; sourceTree = "<group>"; };
-		F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CarlJungData.pdf; sourceTree = "<group>"; };
-		F0E58A0F2AF9B16E004045AD /* FreudDreams.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FreudDreams.pdf; sourceTree = "<group>"; };
 		F0E58A182AFAA8DD004045AD /* Jungtextlonger.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Jungtextlonger.txt; sourceTree = "<group>"; };
 		F0F6766E2ACCB6B40011302B /* userStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,8 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				F0E58A182AFAA8DD004045AD /* Jungtextlonger.txt */,
-				F0E58A0F2AF9B16E004045AD /* FreudDreams.pdf */,
-				F0E58A0D2AF5B31F004045AD /* CarlJungData.pdf */,
 				F06198D12B4626E800EB96B7 /* FreudDreams.txt */,
 			);
 			path = TrainingData;
@@ -343,10 +337,8 @@
 				F06198D22B4626E800EB96B7 /* FreudDreams.txt in Resources */,
 				F0E58A192AFAA8DD004045AD /* Jungtextlonger.txt in Resources */,
 				F059E1BB2A9D3B8B002777A3 /* Config.xcconfig in Resources */,
-				F0E58A102AF9B16E004045AD /* FreudDreams.pdf in Resources */,
 				F059E17E2A8D6A9B002777A3 /* Preview Assets.xcassets in Resources */,
 				F059E1A92A9687E5002777A3 /* Auth0.plist in Resources */,
-				F0E58A0E2AF5B31F004045AD /* CarlJungData.pdf in Resources */,
 				F059E17B2A8D6A9B002777A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
