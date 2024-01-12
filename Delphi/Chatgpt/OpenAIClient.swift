@@ -57,7 +57,7 @@ class AIClient: ObservableObject {
             let completion = try await
             openAIClient.chats.create(model: Model.GPT4.gpt4,
                                       messages: requestMsgs,
-                                      maxTokens: 250) //maxx tokens to use for a response from api
+                                      maxTokens: 300) //maxx tokens to use for a response from api
             onCompletion(.success(completion))
             
         } catch let error as APIErrorResponse {

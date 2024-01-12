@@ -15,19 +15,18 @@ struct ContentView: View {
      NavigationView {
          ZStack {
                Color(ThemeManager.shared.secondaryColor)
-              //.edgesIgnoringSafeArea(.all)
-              .ignoresSafeArea(.all)
-             List {
-              ForEach(userData.chatsList.indices, id: \.self) { index in
-                 let vm = userData.chatsList[index]
-                 if !vm.chatMessages.isEmpty {
-                   previousChats(index: index)
-                    .listRowBackground(Color(ThemeManager.shared.primaryColor))
-                 }
-              }
-              .onDelete(perform: { indexSet in
-                removeRows(at: indexSet)})
-             }
+               .ignoresSafeArea(.all)
+                 List {
+                     ForEach(userData.chatsList.indices, id: \.self) { index in
+                         let vm = userData.chatsList[index]
+                         if !vm.chatMessages.isEmpty {
+                             previousChats(index: index)
+                                 .listRowBackground(Color(ThemeManager.shared.primaryColor))
+                         }
+                     }
+                    .onDelete(perform: { indexSet in
+                    removeRows(at: indexSet)})
+               }
              .scrollContentBackground(.hidden)
          }
          .toolbar {
