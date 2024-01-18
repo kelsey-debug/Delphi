@@ -1,5 +1,6 @@
 # Delphi Dream App
 
+[!NOTE] This app is a WIP and at its minimal viable product stage. 
 
 ## What is Delphi?
 
