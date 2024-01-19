@@ -46,5 +46,7 @@ This allows the script to pull your key values and populate the associated plist
 
 A safe way to do this is to have an env file with the keys and the project scheme run a script that populates the enviroment variables in the xcconfig upon building. The script then takes these values from xcconfig and populates the related plists. 
 ## Demo: 
+![demosnap](https://github.com/kelsey-debug/DelphiPub/assets/57580796/46a97998-2274-4678-8ff7-4620acba2aab)
 
+![demosnap2](https://github.com/kelsey-debug/DelphiPub/assets/57580796/21e37075-fe9e-49e5-844a-ca56ea55f649)
 
