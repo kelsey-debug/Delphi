@@ -8,6 +8,7 @@
 //I want it to return iteratively like on chatgpt
 //user info page - email, birthday for horoscope, weather
 //this will all be used for inquirys eventually.
+//make animation more smooth
 
 import SwiftUI
 
@@ -16,20 +17,20 @@ struct InputView: View {
     @ObservedObject var inputViewModel: InputViewModel
     @Binding var chatsList: [InputViewModel] //list of existing chats
     @State private var contentHeight: CGFloat = 0
- //   @State private var messageBubbles: [any View] = []
     
     var body: some View {
         ZStack {
             Color(uiColor: ThemeManager.shared.primaryColor)
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                   ScrollView {
-                           ForEach(inputViewModel.chatMessages, id: \.id) { message in
-                                messageView(message: message)
-                           }.rotationEffect(.degrees(180))
-                   }
-                   .rotationEffect(.degrees(180))
-                   .padding()
+                ScrollView {
+                        ForEach(inputViewModel.chatMessages, id: \.id) { message in
+                            messageView(message: message)
+                            
+                        }.rotationEffect(.degrees(180))
+                }
+                .rotationEffect(.degrees(180))
+                .padding()
                 
                 HStack {
                 TextField("type here", text: $inputViewModel.placeHolderMessage) {
@@ -43,7 +44,7 @@ struct InputView: View {
                 .background(.gray.opacity(0.1))
                 .cornerRadius(12)
                 Button {
-                    Task {
+                   Task {
                         inputViewModel.newMessage = inputViewModel.placeHolderMessage
                         inputViewModel.placeHolderMessage = ""
                         await inputViewModel.sendMessage()

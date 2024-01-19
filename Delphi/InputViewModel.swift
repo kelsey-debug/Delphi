@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-//separate class from swiftUI, therefore does not have automatic init. needs manual init
 class InputViewModel: ObservableObject {
     @Published var newMessage = ""
     @Published var placeHolderMessage = ""
@@ -27,7 +26,7 @@ class InputViewModel: ObservableObject {
       }
     }
 
-    func sendMessage() async {
+    func sendMessage() async { //update array here
         if !newMessage.isEmpty {
             let newChat = chatMessage(id: UUID(),
                                       content: newMessage,
@@ -44,9 +43,9 @@ class InputViewModel: ObservableObject {
                 switch result {
                 case .success(let completion):
                     let gptResponse = String(describing: completion.choices[0].message.content)
-                    let newChat = chatMessage(id: UUID(), content: gptResponse, dateCreated: Date(), sender: "gpt")
+                    let gptChat = chatMessage(id: UUID(), content: gptResponse, dateCreated: Date(), sender: "gpt")
                     DispatchQueue.main.async { [self] in
-                        chatMessages.append(newChat)
+                        chatMessages.append(gptChat)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)

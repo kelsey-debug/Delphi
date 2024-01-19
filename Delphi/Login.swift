@@ -3,7 +3,6 @@
 //  Delphi
 //
 //  Created by Kelsey Larson on 8/23/23.
-// control entry point to app. callback func allows us to return to contentview w/success
 
 import Foundation
 import SwiftUI
@@ -55,8 +54,7 @@ struct LoginView: View {
         .webAuth()
         .start { result in
             switch result {
-            case .success(let credentials):
-                print("Obtained credentials: \(credentials)")
+            case .success(_):
                 onLoginSuccess(true)
             case .failure(let error):
                 print("Failed with: \(error)")

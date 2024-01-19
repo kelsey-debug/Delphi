@@ -73,10 +73,3 @@ class AIClient: ObservableObject {
 
 
 
-//may need to expand upon AIClient to fine tune model, tokens, context etc
-
-//this method has threading semaphore issue I cannot resolve
-/**  //let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
- //httpClient = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
- //even tho compoent is being used at a lower thread (thru task in contentview), I am ensuring it is being handled on main thread
-// let configuration = Configuration(apiKey: apiKey)*/

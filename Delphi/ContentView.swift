@@ -3,7 +3,6 @@
 //  Delphi
 //
 //  Created by Kelsey Larson on 8/16/23.
-//main UI for your program
 import SwiftUI
 import Auth0
 
@@ -14,14 +13,14 @@ struct ContentView: View {
    var body: some View {
      NavigationView {
          ZStack {
-               Color(ThemeManager.shared.secondaryColor)
+               Color(ThemeManager.shared.primaryColor)
                .ignoresSafeArea(.all)
                  List {
                      ForEach(userData.chatsList.indices, id: \.self) { index in
                          let vm = userData.chatsList[index]
                          if !vm.chatMessages.isEmpty {
                              previousChats(index: index)
-                                 .listRowBackground(Color(ThemeManager.shared.primaryColor))
+                                 .listRowBackground(Color(ThemeManager.shared.secondaryColor))
                          }
                      }
                     .onDelete(perform: { indexSet in
