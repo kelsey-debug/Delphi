@@ -10,13 +10,9 @@ import Auth0
 
 struct LoginView: View {
     let onLoginSuccess: (Bool) -> Void //callback func to progress into main app post login
-    @State private var showSplash = true
     
   var body: some View {
       ZStack {
-          if showSplash {
-              splashView()
-          } else {
               Color(ThemeManager.shared.accentColor)
               .edgesIgnoringSafeArea(.all)
               VStack {
@@ -39,13 +35,6 @@ struct LoginView: View {
                   .padding(10)
                   Spacer()
               }
-       }
-      }
-      .onAppear {
-          Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { timer in
-                          showSplash = false
-                          timer.invalidate()
-          }
       }
   }
     

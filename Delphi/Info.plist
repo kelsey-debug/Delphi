@@ -19,9 +19,20 @@
 	<string>$(OPENAI_API_KEY)</string>
 	<key>OPENAI_ORGANIZATION</key>
 	<string>$(OPENAI_ORGANIZATION)</string>
-	<key>PINECONE_KEY</key>
-	<string>$(PINECONE_KEY)</string>
 	<key>PINCONE_BASE_URL</key>
 	<string>$(PINCONE_BASE_URL)</string>
+	<key>PINECONE_KEY</key>
+	<string>$(PINECONE_KEY)</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>launchScreenColorSet</string>
+		<key>UIImageName</key>
+		<string>delphi</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+		<key>UILaunchScreen</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>
